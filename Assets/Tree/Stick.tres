@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://tbq6cw0kwf7y"]
+
+[ext_resource type="Script" uid="uid://dickvwc7hot3o" path="res://Scripts/InventorySystem/Item.cs" id="1_05omq"]
+
+[resource]
+script = ExtResource("1_05omq")
+Id = "stick_id"
+Name = "Stick"
+Description = "The fundamental resource for greatness."
+metadata/_custom_type_script = "uid://dickvwc7hot3o"

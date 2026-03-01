@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ctcdncf02qqq2"]
+
+[ext_resource type="Script" uid="uid://cfvm2pumbdmsf" path="res://Assets/Tree/Tree.cs" id="1_aspte"]
+[ext_resource type="PackedScene" uid="uid://bixmasygo07a0" path="res://Assets/Tree/Tree.glb" id="1_nhmoe"]
+[ext_resource type="Resource" uid="uid://tbq6cw0kwf7y" path="res://Assets/Tree/Stick.tres" id="2_wf1u4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aspte"]
+bounce = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhmoe"]
+size = Vector3(0.3857422, 1.0920868, 0.48339844)
+
+[node name="Tree" type="RigidBody3D" unique_id=1235974922]
+mass = 6.0
+physics_material_override = SubResource("PhysicsMaterial_aspte")
+can_sleep = false
+script = ExtResource("1_aspte")
+Stick = ExtResource("2_wf1u4")
+
+[node name="Tree" parent="." unique_id=1908486531 instance=ExtResource("1_nhmoe")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08333188, 0.6156082, 0.010123193)
+shape = SubResource("BoxShape3D_nhmoe")
