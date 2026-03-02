@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bojh34ojrhtvg"]
+
+[ext_resource type="Script" uid="uid://dickvwc7hot3o" path="res://Scripts/InventorySystem/Item.cs" id="1_73aoi"]
+[ext_resource type="Texture2D" uid="uid://conpjemhc776p" path="res://Assets/Tools/Axe/Axe.png" id="1_e3chl"]
+
+[resource]
+script = ExtResource("1_73aoi")
+Id = "axe_tool"
+Name = "Axe"
+Image = ExtResource("1_e3chl")
+Equippable = true
+Description = "Sharp tool for chopping trees."
+metadata/_custom_type_script = "uid://dickvwc7hot3o"

@@ -7,7 +7,9 @@ public partial class Item : Resource
 {
     [Export] public string Id { get; set; }
     [Export] public string Name { get; set; }
-    [Export] public AtlasTexture Image { get; set; } 
+    [Export] public Texture2D Image { get; set; } 
+
+    [Export] public bool Equippable = false;
 
     [Export(PropertyHint.MultilineText)] 
     public string Description { get; set; }
@@ -16,5 +18,4 @@ public partial class Item : Resource
     {
         return $"Item: {Name}";
     }
-
 }

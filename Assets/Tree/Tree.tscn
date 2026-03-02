@@ -2,23 +2,59 @@
 
 [ext_resource type="Script" uid="uid://cfvm2pumbdmsf" path="res://Assets/Tree/Tree.cs" id="1_aspte"]
 [ext_resource type="PackedScene" uid="uid://bixmasygo07a0" path="res://Assets/Tree/Tree.glb" id="1_nhmoe"]
-[ext_resource type="Resource" uid="uid://tbq6cw0kwf7y" path="res://Assets/Tree/Stick.tres" id="2_wf1u4"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aspte"]
-bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhmoe"]
 size = Vector3(0.3857422, 1.0920868, 0.48339844)
 
+[sub_resource type="Animation" id="Animation_wf1u4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aspte"]
+resource_name = "Wobble"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.08726646, 0, 0), Vector3(-0.08726646, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wf1u4"]
+_data = {
+&"RESET": SubResource("Animation_wf1u4"),
+&"Wobble": SubResource("Animation_aspte")
+}
+
 [node name="Tree" type="RigidBody3D" unique_id=1235974922]
-mass = 6.0
-physics_material_override = SubResource("PhysicsMaterial_aspte")
-can_sleep = false
+linear_damp = 0.1
+angular_damp = 0.5
 script = ExtResource("1_aspte")
-Stick = ExtResource("2_wf1u4")
 
 [node name="Tree" parent="." unique_id=1908486531 instance=ExtResource("1_nhmoe")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08333188, 0.6156082, 0.010123193)
 shape = SubResource("BoxShape3D_nhmoe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2095754631]
+libraries/ = SubResource("AnimationLibrary_wf1u4")
+
+[node name="GatherTimer" type="Timer" parent="." unique_id=1452142737]

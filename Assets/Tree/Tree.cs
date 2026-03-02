@@ -5,31 +5,60 @@ namespace Assets;
 [GlobalClass]
 public partial class Tree : RigidBody3D
 {
-    // --- Exported properties ---
-    [Export]
-    private Item Stick { get; set; }
-    
-    [Export]
-    private float _torque = 80f;
+    // Exported properties
+    [Export] public float GatherTime = 3.5f;
 
     // --- Variables ---
-    private bool _mouseEntered;
+    private Item Stick { get; } = GD.Load<Item>("Assets/Tree/Stick.tres");
+    private bool _isGathering = false;
+
+    // --- Node references ---
+    private Timer _gatherTimer;
+    private AnimationPlayer _animation;
     
     public override void _Ready()
     {
-        MouseEntered += () => _mouseEntered = true;
-        MouseExited += () => _mouseEntered = false;
+        _animation = GetNode<AnimationPlayer>("AnimationPlayer");
+
+        // Set up gathering timer properties
+        _gatherTimer = GetNode<Timer>("GatherTimer");
+        _gatherTimer.OneShot = false;
+        _gatherTimer.WaitTime = GatherTime;
+        
+        _gatherTimer.Timeout += OnGatherTimeout;
+
+        InputEvent += OnMouseClick;
     }
 
-    public override void _IntegrateForces(PhysicsDirectBodyState3D state)
-    {   
-        // Apply a rotational force on the tree
-        if (_mouseEntered && Input.IsActionJustPressed("Click"))
+    private void OnMouseClick(Node camera, InputEvent @event, 
+        Vector3 eventPosition, Vector3 normal, long shapeIdx)
+    {
+        if (@event is InputEventMouseButton mouseButton && 
+            mouseButton.ButtonIndex == MouseButton.Left &&
+            mouseButton.Pressed)
         {
-            var direction = GD.RandRange(-1 , 1);
-            state.ApplyTorque(direction * Vector3.One * _torque);
-            InventorySystem.Instance.AddItem(new ItemStack(Stick), 3);
-            InventorySystem.Instance.PrintItems();
+            ToggleGathering();
         }
-    }   
+    }
+
+    private void ToggleGathering()
+    {
+        _isGathering = !_isGathering;
+
+        if (_isGathering)
+        {
+            _gatherTimer.Start();
+        }
+        else
+        {
+            _gatherTimer.Stop();
+        }
+    }
+
+    private void OnGatherTimeout()
+    {
+        InventorySystem.Instance.AddItem(new ItemStack(Stick), GD.RandRange(2, 4));
+        InventorySystem.Instance.PrintItems();
+        _animation.Play("Wobble");
+    }
 }

@@ -17,7 +17,6 @@ public partial class ItemStack : Resource
         ItemData = item;
         Amount = amount;
     }
-
     public override string ToString()
     {
         return $"{ItemData.Name}: {Amount}";

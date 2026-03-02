@@ -17,10 +17,12 @@ config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 [autoload]
 
 InventorySystem="*uid://boffyhwqa55x3"
+CraftingSystem="*uid://djkaw0n3dr0rc"
 
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://djfjju4lcdvcj"
 
 [dotnet]
 
@@ -52,4 +54,5 @@ Click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
