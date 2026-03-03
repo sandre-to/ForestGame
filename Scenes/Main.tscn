@@ -59,6 +59,7 @@ size = Vector3(7.1464844, 3.2558594, 0.34387207)
 material = SubResource("StandardMaterial3D_idj7w")
 
 [node name="Floor" type="CSGBox3D" parent="Room" unique_id=885085702]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8084345, 0)
 use_collision = true
 size = Vector3(7, 1, 7)

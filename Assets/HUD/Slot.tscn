@@ -8,10 +8,16 @@ texture = ExtResource("2_ki45h")
 
 [sub_resource type="LabelSettings" id="LabelSettings_kln2b"]
 font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Slot" type="HBoxContainer" unique_id=1495368065]
 custom_minimum_size = Vector2(32, 64)
-theme_override_constants/separation = 16
+offset_right = 144.0
+offset_bottom = 64.0
+theme_override_constants/separation = 14
 script = ExtResource("1_eu6yk")
 
 [node name="SlotPanel" type="Panel" parent="." unique_id=641483094]
@@ -36,6 +42,9 @@ grow_vertical = 2
 stretch_mode = 3
 
 [node name="AmountLabel" type="Label" parent="." unique_id=1197253855]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_kln2b")
+horizontal_alignment = 1
+vertical_alignment = 2
