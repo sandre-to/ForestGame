@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cfvm2pumbdmsf" path="res://Assets/Tree/Tree.cs" id="1_aspte"]
 [ext_resource type="PackedScene" uid="uid://bixmasygo07a0" path="res://Assets/Tree/Tree.glb" id="1_nhmoe"]
+[ext_resource type="Resource" uid="uid://tbq6cw0kwf7y" path="res://Assets/Tree/Resources/Stick.tres" id="2_wf1u4"]
+[ext_resource type="Resource" uid="uid://mrufls0hojwh" path="res://Assets/Tree/Resources/Wood.tres" id="3_rnwde"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhmoe"]
 size = Vector3(0.3857422, 1.0920868, 0.48339844)
@@ -47,6 +49,8 @@ _data = {
 linear_damp = 0.1
 angular_damp = 0.5
 script = ExtResource("1_aspte")
+Stick = ExtResource("2_wf1u4")
+Wood = ExtResource("3_rnwde")
 
 [node name="Tree" parent="." unique_id=1908486531 instance=ExtResource("1_nhmoe")]
 
@@ -56,5 +60,3 @@ shape = SubResource("BoxShape3D_nhmoe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2095754631]
 libraries/ = SubResource("AnimationLibrary_wf1u4")
-
-[node name="GatherTimer" type="Timer" parent="." unique_id=1452142737]

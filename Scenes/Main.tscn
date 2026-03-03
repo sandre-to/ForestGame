@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/Tree/Tree.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
-[ext_resource type="Texture2D" uid="uid://djwybsa0d1wjp" path="res://Assets/HUD/Slot.png" id="2_idj7w"]
-[ext_resource type="Script" uid="uid://bkkwh1d0yj6bq" path="res://Assets/HUD/Slot.cs" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/HUD/Hud.cs" id="3_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/HUD/Slot.tscn" id="4_v1gob"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -30,46 +30,68 @@ albedo_color = Color(1, 1, 1, 0)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r150o"]
 albedo_color = Color(0.37455785, 0.680185, 0.3107188, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idj7w"]
-texture = ExtResource("2_idj7w")
-
-[sub_resource type="LabelSettings" id="LabelSettings_kln2b"]
-font_size = 32
-
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1808889389]
-transform = Transform3D(0.86732274, -0.18851915, 0.4606645, 0, 0.9255008, 0.37874553, -0.49774614, -0.3284946, 0.8027079, 0, 0, 0)
+[node name="Environment" type="Node3D" parent="." unique_id=1679031681]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1808889389]
+transform = Transform3D(0.86732274, -0.18851915, 0.4606645, 0, 0.92550087, 0.3787456, -0.49774614, -0.32849464, 0.80270797, 0, 0, 0)
 light_color = Color(0.69467354, 0.69467354, 0.6946735, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=672636832]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=672636832]
 environment = SubResource("Environment_idj7w")
 
-[node name="InvincibleWalls" type="Node3D" parent="." unique_id=767432851]
+[node name="Room" type="Node3D" parent="." unique_id=767432851]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="InvincibleWalls" unique_id=1843796731]
+[node name="InvincibleWalls" type="CSGCombiner3D" parent="Room" unique_id=1843796731]
+visible = false
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="InvincibleWalls/CSGCombiner3D" unique_id=602499683]
+[node name="CSGBox3D" type="CSGBox3D" parent="Room/InvincibleWalls" unique_id=602499683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39222324, -3.6981192)
 size = Vector3(7.1464844, 3.2558594, 0.34387207)
 material = SubResource("StandardMaterial3D_idj7w")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="InvincibleWalls/CSGCombiner3D" unique_id=1237308072]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Room/InvincibleWalls" unique_id=1237308072]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.674436, 0.39222324, -0.0539124)
 size = Vector3(7.1464844, 3.2558594, 0.34387207)
 material = SubResource("StandardMaterial3D_idj7w")
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=885085702]
+[node name="Floor" type="CSGBox3D" parent="Room" unique_id=885085702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8084345, 0)
 use_collision = true
 size = Vector3(7, 1, 7)
 material = SubResource("StandardMaterial3D_r150o")
 
-[node name="Tree" parent="." unique_id=1235974922 instance=ExtResource("1_r150o")]
+[node name="Trees" type="Node3D" parent="." unique_id=2067968856]
+
+[node name="Tree" parent="Trees" unique_id=1235974922 instance=ExtResource("1_r150o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27557707, 0)
-GatherTime = 1.0
+
+[node name="Tree4" parent="Trees" unique_id=1832789616 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.011231, -0.27557707, -1.5185435)
+
+[node name="Tree5" parent="Trees" unique_id=1344467902 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, -1.5185435)
+
+[node name="Tree6" parent="Trees" unique_id=1516478222 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, 0.49888062)
+
+[node name="Tree7" parent="Trees" unique_id=1119633499 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, 2.1891959)
+
+[node name="Tree8" parent="Trees" unique_id=113665051 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4505062, -0.27557707, 2.1891959)
+
+[node name="Tree9" parent="Trees" unique_id=1735315181 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3422854, -0.27557707, 2.1891959)
+
+[node name="Tree2" parent="Trees" unique_id=998082292 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27557707, -1.3748817)
+
+[node name="Tree3" parent="Trees" unique_id=175155241 instance=ExtResource("1_r150o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3711023, -0.27557707, 0.658298)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
@@ -77,6 +99,8 @@ projection = 1
 size = 8.0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=86818144]
+script = ExtResource("3_pbw6q")
+_slotScene = ExtResource("4_v1gob")
 
 [node name="Display" type="Control" parent="HUD" unique_id=493466364]
 layout_mode = 3
@@ -90,9 +114,9 @@ mouse_filter = 2
 [node name="Panel" type="Panel" parent="HUD/Display" unique_id=33798363]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(128, 128)
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
+layout_mode = 1
+offset_right = 187.0
+offset_bottom = 399.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Display/Panel" unique_id=980145553]
 layout_mode = 1
@@ -106,56 +130,6 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Display/Panel/MarginContainer" unique_id=71313634]
-layout_mode = 2
-
-[node name="Slot" type="HBoxContainer" parent="HUD/Display/Panel/MarginContainer/VBoxContainer" unique_id=858163835]
-custom_minimum_size = Vector2(32, 64)
-layout_mode = 2
-theme_override_constants/separation = 16
-script = ExtResource("2_kln2b")
-
-[node name="SlotPanel" type="Panel" parent="HUD/Display/Panel/MarginContainer/VBoxContainer/Slot" unique_id=645690739]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_idj7w")
-
-[node name="TextureRect" type="TextureRect" parent="HUD/Display/Panel/MarginContainer/VBoxContainer/Slot/SlotPanel" unique_id=1750302026]
+[node name="SlotContainer" type="VBoxContainer" parent="HUD/Display/Panel/MarginContainer" unique_id=71313634]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch_mode = 3
-
-[node name="AmountLabel" type="Label" parent="HUD/Display/Panel/MarginContainer/VBoxContainer/Slot" unique_id=109420990]
 layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_kln2b")
-
-[node name="UI" type="Control" parent="HUD" unique_id=2064768248]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Button" type="Button" parent="HUD/UI" unique_id=1762628272]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 52.0
-offset_top = 511.0
-offset_right = 247.0
-offset_bottom = 606.0
-text = "Craft axe"

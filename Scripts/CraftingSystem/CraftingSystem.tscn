@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://djkaw0n3dr0rc"]
-
-[ext_resource type="Script" uid="uid://chx8dteqtti1k" path="res://Scripts/CraftingSystem/CraftingSystem.cs" id="1_72rnw"]
-[ext_resource type="Script" uid="uid://cgv34cq074dwh" path="res://Scripts/CraftingSystem/Recipe.cs" id="2_rhs3u"]
-[ext_resource type="Resource" uid="uid://bwfs37jvdrewi" path="res://Assets/Tools/Axe/AxeRecipe.tres" id="3_yagiy"]
-
-[node name="CraftingSystem" type="Node" unique_id=1538672952]
-script = ExtResource("1_72rnw")
-Recipes = Array[ExtResource("2_rhs3u")]([ExtResource("3_yagiy")])

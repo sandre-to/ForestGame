@@ -1,64 +1,47 @@
+
 using Godot;
 using Scripts.InventorySystem;
-namespace Assets;
-
+namespace Assets.Tree;
 [GlobalClass]
 public partial class Tree : RigidBody3D
 {
     // Exported properties
-    [Export] public float GatherTime = 3.5f;
-
-    // --- Variables ---
-    private Item Stick { get; } = GD.Load<Item>("Assets/Tree/Stick.tres");
-    private bool _isGathering = false;
-
-    // --- Node references ---
-    private Timer _gatherTimer;
-    private AnimationPlayer _animation;
+    [Export] public ItemData Stick;
+    [Export] public ItemData Wood;
+    [Export] public float Health = 5.0f;
     
+    // --- Node references ---
+    private AnimationPlayer _animation;
+
     public override void _Ready()
     {
         _animation = GetNode<AnimationPlayer>("AnimationPlayer");
-
-        // Set up gathering timer properties
-        _gatherTimer = GetNode<Timer>("GatherTimer");
-        _gatherTimer.OneShot = false;
-        _gatherTimer.WaitTime = GatherTime;
-        
-        _gatherTimer.Timeout += OnGatherTimeout;
-
         InputEvent += OnMouseClick;
+        
+        MouseEntered += () => Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Tools/Axe/tool_axe_single.png"));
+        MouseExited += () => Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Cursor/hand_point.png"));
     }
 
     private void OnMouseClick(Node camera, InputEvent @event, 
         Vector3 eventPosition, Vector3 normal, long shapeIdx)
     {
-        if (@event is InputEventMouseButton mouseButton && 
-            mouseButton.ButtonIndex == MouseButton.Left &&
-            mouseButton.Pressed)
+        if (@event is InputEventMouseButton mouseButton && mouseButton.ButtonIndex == MouseButton.Left && mouseButton.Pressed)
         {
-            ToggleGathering();
+            ChopTree();
         }
     }
 
-    private void ToggleGathering()
+    private void ChopTree()
     {
-        _isGathering = !_isGathering;
-
-        if (_isGathering)
-        {
-            _gatherTimer.Start();
-        }
-        else
-        {
-            _gatherTimer.Stop();
-        }
-    }
-
-    private void OnGatherTimeout()
-    {
-        InventorySystem.Instance.AddItem(new ItemStack(Stick), GD.RandRange(2, 4));
-        InventorySystem.Instance.PrintItems();
         _animation.Play("Wobble");
+        InventorySystem.Instance.AddItem(Stick, GD.RandRange(2, 5));
+        Health--;
+
+        if (Health <= 0)
+        {
+            Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Cursor/hand_point.png"));
+            InventorySystem.Instance.AddItem(Wood, GD.RandRange(3, 8));
+            QueueFree();
+        }
     }
 }

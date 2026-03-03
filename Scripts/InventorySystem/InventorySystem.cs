@@ -8,39 +8,40 @@ public partial class InventorySystem : Node
 
     // Signals that are connected with inventory and HUD/UI
     [Signal]
-    public delegate void UpdatedHudEventHandler(ItemStack itemStack);
+    public delegate void UpdatedHudEventHandler(ItemData iitem);
 
     [Signal]
-    public delegate void ToolUiUpdatedEventHandler(Item tool);
+    public delegate void ToolUiUpdatedEventHandler(ToolData tool);
+
 
     // Lists of items, equipment, etc.
     [Export]
-    private Array<ItemStack> Items = [];
+    private Array<ItemData> Items = [];
 
     [Export]
-    private Array<Item> Tools = [];
+    private Array<ToolData> Tools = [];
 
     public override void _Ready()
     {
         Instance = this;   
     }
 
-    public void AddTool(Item item)
+
+    public void AddTool(ToolData newTool)
     {
-        foreach (Item tool in Tools)
+        foreach (ToolData tool in Tools)
         {
-            if (tool.Id == item.Id)
+            if (tool.Id == newTool.Id)
             {
                 return;
             }
         }
-
-        Tools.Add(item);
+        Tools.Add(newTool);
     }
 
-    public Item GetTool(string id)
+    public ToolData GetTool(string id)
     {
-        foreach (Item tool in Tools)
+        foreach (ToolData tool in Tools)
         {
             if (tool.Id == id)
             {
@@ -52,7 +53,7 @@ public partial class InventorySystem : Node
 
     public bool ToolExists(string id)
     {
-        foreach (Item tool in Tools)
+        foreach (ToolData tool in Tools)
         {
             if (tool.Id == id)
             {
@@ -62,26 +63,22 @@ public partial class InventorySystem : Node
         return false;
     }
 
-    public void AddItem(ItemStack item, int amount)
+    public void AddItem(ItemData newItem, int amount)
     {
-        // Only increase amount if the item stack already exists
-        foreach (ItemStack stack in Items)
+        // Only increase amount if the item already exists
+        foreach (ItemData item in Items)
         {
-            if (stack.ItemData.Equippable) continue;
-
-            if (stack.ItemData.Id == item.ItemData.Id)
+            if (item.Id == newItem.Id)
             {
-                stack.Amount += amount;
-                EmitSignal(SignalName.UpdatedHud, stack);
+                item.Amount += amount;
+                EmitSignal(SignalName.UpdatedHud, item);
                 return;
             }
         }
 
-        if (!item.ItemData.Equippable)
-        {
-            Items.Add(item);
-            EmitSignal(SignalName.UpdatedHud, item);
-        }
+        Items.Add(newItem);
+        newItem.Amount += amount;
+        EmitSignal(SignalName.UpdatedHud, newItem);
     }
 
     public void RemoveItem(string Id, int amount)
@@ -97,13 +94,13 @@ public partial class InventorySystem : Node
         EmitSignal(SignalName.UpdatedHud, item);
     }
 
-    public ItemStack GetItem(string Id)
+    public ItemData GetItem(string Id)
     {
-        foreach (ItemStack stack in Items)
+        foreach (ItemData item in Items)
         {
-            if (stack.ItemData.Id == Id)
+            if (item.Id == Id)
             {
-                return stack;
+                return item;
             }
         }
         return null;
@@ -111,9 +108,9 @@ public partial class InventorySystem : Node
 
     public void PrintItems()
     {
-        foreach (ItemStack stack in Items)
+        foreach (ItemData item in Items)
         {
-            GD.Print(stack);
+            GD.Print(item);
         }
     }
 }

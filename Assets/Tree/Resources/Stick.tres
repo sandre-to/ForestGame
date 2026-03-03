@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://tbq6cw0kwf7y"]
+
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="1_05omq"]
+[ext_resource type="Texture2D" uid="uid://bl24w1kn2fhuu" path="res://Assets/Tree/Resources/Stick.png" id="1_i0wkq"]
+
+[resource]
+script = ExtResource("1_05omq")
+Id = "stick_material"
+Name = "Stick"
+Image = ExtResource("1_i0wkq")
+metadata/_custom_type_script = "uid://c61682u0snr1s"
