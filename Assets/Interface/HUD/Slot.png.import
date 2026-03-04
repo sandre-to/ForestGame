@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djwybsa0d1wjp"
-path="res://.godot/imported/Slot.png-6d82bec2cdd7512c04259fc59818fcc0.ctex"
+path="res://.godot/imported/Slot.png-646be1a45ce0291f95d0ad25edf8e11d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/Slot.png"
-dest_files=["res://.godot/imported/Slot.png-6d82bec2cdd7512c04259fc59818fcc0.ctex"]
+source_file="res://Assets/Interface/HUD/Slot.png"
+dest_files=["res://.godot/imported/Slot.png-646be1a45ce0291f95d0ad25edf8e11d.ctex"]
 
 [params]
 

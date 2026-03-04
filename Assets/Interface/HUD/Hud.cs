@@ -1,7 +1,5 @@
 using Godot;
 using Scripts.InventorySystem;
-using System;
-using System.Linq;
 
 namespace Assets.HUD;
 
@@ -15,12 +13,12 @@ public partial class Hud : CanvasLayer
     public override void _Ready()
     {
         _slots = GetNode<VBoxContainer>("%SlotContainer");
-        InventorySystem.Instance.UpdatedHud += OnHudUpdated;
+        Inventory.Instance.UpdatedHud += OnHudUpdated;
     }
 
     private void OnHudUpdated(ItemData item)
     {
-        foreach (Slot slot in _slots.GetChildren().Cast<Slot>())
+        foreach (Slot slot in _slots.GetChildren())
         {
             if (_slots.GetChildren().Count == 0) break;
 

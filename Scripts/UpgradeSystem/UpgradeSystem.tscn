@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cea4k0w3qm2lb"]
+
+[ext_resource type="Script" uid="uid://j3uaewb0u0sx" path="res://Scripts/UpgradeSystem/Upgrade.cs" id="1_cluxm"]
+
+[node name="UpgradeSystem" type="Node" unique_id=82525953]
+script = ExtResource("1_cluxm")

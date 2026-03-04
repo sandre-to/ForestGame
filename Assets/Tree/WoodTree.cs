@@ -17,6 +17,7 @@ public partial class WoodTree : RigidBody3D
     private Timer _chopTimer;
     private VisibleOnScreenNotifier3D _visibleBox;
     private CollisionShape3D _collision;
+    private AudioStreamPlayer3D _chopSound;
 
     // --- Flags ---
     private bool _canChop = true;
@@ -33,6 +34,7 @@ public partial class WoodTree : RigidBody3D
         _chargeBar = GetNode<ProgressBar>("ChargeBar");
         _visibleBox = GetNode<VisibleOnScreenNotifier3D>("VisibleOnScreen");
         _collision = GetNode<CollisionShape3D>("CollisionShape3D");
+        _chopSound = GetNode<AudioStreamPlayer3D>("ChopSound");
 
         // Set progress bar properties
         _healthBar.Hide();
@@ -83,6 +85,7 @@ public partial class WoodTree : RigidBody3D
     {
         if (@event is InputEventMouseButton mouseButton && mouseButton.ButtonIndex == MouseButton.Left && mouseButton.Pressed)
         {
+            UpdateToolStats();
             ChopTree();
         }
     }
@@ -93,7 +96,8 @@ public partial class WoodTree : RigidBody3D
         _canChop = false;
         _chopTimer.Start(); 
 
-        InventorySystem.Instance.AddItem(Stick, GD.RandRange(2, 5));
+        Inventory.Instance.AddItem(Stick, GD.RandRange(2, 5));
+        _chopSound.Play();
         _animation.Play("Wobble");
         Health -= _equippedAxe.Damage;
         _healthBar.Value = Health;
@@ -109,8 +113,15 @@ public partial class WoodTree : RigidBody3D
             var direction = GD.RandRange(-1, 1);
             ApplyTorqueImpulse(new Vector3(20, 0, 20 * direction));
             _healthBar.Value = 0;
-            InventorySystem.Instance.AddItem(Wood, GD.RandRange(3, 6));
+            Inventory.Instance.AddItem(Wood, GD.RandRange(3, 6));
             GetTree().CreateTimer(2.5f).Timeout += () => QueueFree();   
         }
+    }
+
+    private void UpdateToolStats()
+    {
+        _chargeBar.MaxValue = _equippedAxe.GatheringTime;
+        _chargeBar.Value = _chargeBar.MaxValue;
+        _chopTimer.WaitTime = _equippedAxe.GatheringTime;
     }
 }

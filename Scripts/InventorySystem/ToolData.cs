@@ -1,6 +1,4 @@
 using Godot;
-using Scripts.InventorySystem;
-using System;
 
 namespace Scripts.InventorySystem;
 [GlobalClass]

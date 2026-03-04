@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://krjxbkt4y00y"]
 
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
-[ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/HUD/Hud.cs" id="3_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/HUD/Slot.tscn" id="4_v1gob"]
+[ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/Interface/HUD/Hud.cs" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://uwjfdmjuu2dp" path="res://Assets/Interface/Upgrade/UpgradePanel.cs" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
+[ext_resource type="Texture2D" uid="uid://conpjemhc776p" path="res://Assets/Tools/Axe/Axe.png" id="5_pbw6q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -106,3 +108,125 @@ theme_override_constants/margin_bottom = 8
 [node name="SlotContainer" type="VBoxContainer" parent="HUD/Display/Panel/MarginContainer" unique_id=71313634]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="UpgradePanel" type="Control" parent="HUD" unique_id=320691735]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_rgh2o")
+
+[node name="Panel" type="Panel" parent="HUD/UpgradePanel" unique_id=1879242812]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -231.0
+offset_right = 458.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/UpgradePanel/Panel" unique_id=315142445]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.97400004
+anchor_bottom = 0.9480001
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -0.184021
+offset_bottom = 0.023956299
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="UpgradeBox" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=800173840]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=131428890]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox/Panel" unique_id=1305557615]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -140.0
+offset_right = 125.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pbw6q")
+
+[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=910209082]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="UpgradeBox2" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=1294389873]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1887915095]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2/Panel" unique_id=966788099]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -140.0
+offset_right = 125.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pbw6q")
+
+[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1709154321]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "Upgrade 2"
+
+[node name="UpgradeBox3" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=99449718]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=1447644409]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3/Panel" unique_id=16398098]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -140.0
+offset_right = 125.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pbw6q")
+
+[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=389436503]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "Upgrade 3"

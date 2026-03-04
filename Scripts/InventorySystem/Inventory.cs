@@ -2,13 +2,13 @@ using Godot;
 using Godot.Collections;
 
 namespace Scripts.InventorySystem;
-public partial class InventorySystem : Node
+public partial class Inventory : Node
 {
-    public static InventorySystem Instance { get; private set; }
+    public static Inventory Instance { get; private set; }
 
     // Signals that are connected with inventory and HUD/UI
     [Signal]
-    public delegate void UpdatedHudEventHandler(ItemData iitem);
+    public delegate void UpdatedHudEventHandler(ItemData item);
 
     [Signal]
     public delegate void ToolUiUpdatedEventHandler(ToolData tool);
