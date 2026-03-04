@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://krjxbkt4y00y"]
 
-[ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/Tree/Tree.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
 [ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/HUD/Hud.cs" id="3_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/HUD/Slot.tscn" id="4_v1gob"]
@@ -28,7 +27,7 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r150o"]
-albedo_color = Color(0.37455785, 0.680185, 0.3107188, 1)
+albedo_color = Color(0.09104932, 0.5521032, 0.12538815, 1)
 
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
@@ -38,6 +37,7 @@ script = ExtResource("1_rgh2o")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1808889389]
 transform = Transform3D(0.86732274, -0.18851915, 0.4606645, 0, 0.92550087, 0.3787456, -0.49774614, -0.32849464, 0.80270797, 0, 0, 0)
 light_color = Color(0.69467354, 0.69467354, 0.6946735, 1)
+light_energy = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=672636832]
 environment = SubResource("Environment_idj7w")
@@ -45,7 +45,6 @@ environment = SubResource("Environment_idj7w")
 [node name="Room" type="Node3D" parent="." unique_id=767432851]
 
 [node name="InvincibleWalls" type="CSGCombiner3D" parent="Room" unique_id=1843796731]
-visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room/InvincibleWalls" unique_id=602499683]
@@ -66,33 +65,6 @@ size = Vector3(7, 1, 7)
 material = SubResource("StandardMaterial3D_r150o")
 
 [node name="Trees" type="Node3D" parent="." unique_id=2067968856]
-
-[node name="Tree" parent="Trees" unique_id=1235974922 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27557707, 0)
-
-[node name="Tree4" parent="Trees" unique_id=1832789616 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.011231, -0.27557707, -1.5185435)
-
-[node name="Tree5" parent="Trees" unique_id=1344467902 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, -1.5185435)
-
-[node name="Tree6" parent="Trees" unique_id=1516478222 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, 0.49888062)
-
-[node name="Tree7" parent="Trees" unique_id=1119633499 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6753283, -0.27557707, 2.1891959)
-
-[node name="Tree8" parent="Trees" unique_id=113665051 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4505062, -0.27557707, 2.1891959)
-
-[node name="Tree9" parent="Trees" unique_id=1735315181 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3422854, -0.27557707, 2.1891959)
-
-[node name="Tree2" parent="Trees" unique_id=998082292 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27557707, -1.3748817)
-
-[node name="Tree3" parent="Trees" unique_id=175155241 instance=ExtResource("1_r150o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3711023, -0.27557707, 0.658298)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
