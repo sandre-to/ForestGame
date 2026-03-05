@@ -37,15 +37,42 @@ public partial class Upgrade : Node
     {
         // Find the requirements array first
         Requirement requirement = FindRequirement(reqId);
+        if (requirement == null)
+        {
+            GD.PushError("Can't find requirements. Check the correct path.");
+            return false;  
+        } 
 
         // Find all the items in the inventory
         Array<ItemData> currentInventory = inventory.GetInventory();
+        if (currentInventory == null) return false;
 
-        foreach (var item in requirement.Materials)
-        {
-            GD.Print(item);
+        // Compare requirements with the current items
+        foreach (var req in requirement.Materials)
+        {   
+            // Always assume that the player does not have the item
+            bool hasMaterial = false;
+
+            // Now check every item in the inventory
+            // Jump out of the loop if the item is the same as requirement
+            // And check if the player has enough of the item
+            foreach (var item in currentInventory)
+            {
+                if (req.Id == item.Id && item.Amount >= req.Amount)
+                {
+                    hasMaterial = true; // IMPORTANT CHECK!
+                    GD.Print($"Checking requirement: {req.Id} found: {hasMaterial}. Enough materials? {item.Amount >= req.Amount}");
+                    break;
+                }
+            }
+            
+
+            if (!hasMaterial)
+            {
+                return false;
+            }
         }
-        
+
         return true;
     }
 

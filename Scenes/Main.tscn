@@ -33,9 +33,16 @@ albedo_color = Color(1, 1, 1, 0)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r150o"]
 albedo_color = Color(0.09104932, 0.5521032, 0.12538815, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw32o"]
+bg_color = Color(0.12820739, 0.42705694, 0.5005171, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
-_maxTrees = 20
+_maxTrees = 10
 
 [node name="Environment" type="Node3D" parent="." unique_id=1679031681]
 
@@ -153,10 +160,12 @@ alignment = 1
 [node name="UpgradeBox" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=800173840]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=131428890]
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox/Panel" unique_id=1305557615]
 layout_mode = 1
@@ -175,17 +184,20 @@ texture = ExtResource("5_jw32o")
 
 [node name="LevelOneButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=910209082]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-text = "Upgrade 1"
+size_flags_horizontal = 4
+text = "Upgrade"
 
 [node name="UpgradeBox2" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=1294389873]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1887915095]
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2/Panel" unique_id=966788099]
 layout_mode = 1
@@ -204,17 +216,20 @@ texture = ExtResource("6_v1gob")
 
 [node name="LevelTwoButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1709154321]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-text = "Upgrade 2"
+size_flags_horizontal = 4
+text = "Upgrade"
 
 [node name="UpgradeBox3" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=99449718]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme_override_constants/separation = 25
 
 [node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=1447644409]
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3/Panel" unique_id=16398098]
 layout_mode = 1
@@ -233,6 +248,7 @@ texture = ExtResource("7_jw32o")
 
 [node name="LevelThreeButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=389436503]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-text = "Upgrade 3"
+size_flags_horizontal = 4
+text = "Upgrade "

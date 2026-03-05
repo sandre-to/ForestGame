@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_05omq")
 Id = "stick_material"
-Name = "Stick"
+Name = "Sticks"
 Image = ExtResource("1_i0wkq")
 metadata/_custom_type_script = "uid://c61682u0snr1s"

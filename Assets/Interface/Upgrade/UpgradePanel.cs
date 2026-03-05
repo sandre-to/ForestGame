@@ -7,8 +7,11 @@ public partial class UpgradePanel : Control
     private Button _levelTwoButton;
     private Button _levelThreeButton;
 
+    private Upgrade _upgrade;
+
     public override void _Ready()
     {
+        _upgrade = Upgrade.Instance;
         _levelOneButton = GetNode<Button>("%LevelOneButton");
         _levelTwoButton = GetNode<Button>("%LevelTwoButton");
         _levelThreeButton = GetNode<Button>("%LevelThreeButton");
@@ -21,12 +24,19 @@ public partial class UpgradePanel : Control
         // Connect all the signals for the buttons
         _levelOneButton.Pressed += OnLevelOnePressed;
     }
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("UpgradePanel"))
+        {
+            this.Visible = !this.Visible;
+        }
+    }
+
 
     private void OnLevelOnePressed()
     {
-        if (Upgrade.Instance.CanUpgrade("axe_level_1"))
+        if (_upgrade.CanUpgrade("axe_level_1"))
         {
-            
         }
     }
 }
