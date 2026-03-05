@@ -8,12 +8,16 @@ public partial class Main : Node3D
 {
     private static readonly PackedScene TreeScene = 
         GD.Load<PackedScene>("res://Assets/Tree/Tree.tscn");
+
+    [Export]
+    private int _maxTrees = 0;
+
     private Node3D _trees;
 
     public override void _Ready()
     {
         _trees = GetNode<Node3D>("Trees");
-        SpawnTrees(50);
+        SpawnTrees(_maxTrees);
     }
 
     private void SpawnTrees(int amount)

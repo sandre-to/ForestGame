@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/Interface/HUD/Hud.cs" id="3_pbw6q"]
 [ext_resource type="Script" uid="uid://uwjfdmjuu2dp" path="res://Assets/Interface/Upgrade/UpgradePanel.cs" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
-[ext_resource type="Texture2D" uid="uid://conpjemhc776p" path="res://Assets/Tools/Axe/Axe.png" id="5_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/WoodAxe.png" id="5_jw32o"]
+[ext_resource type="Texture2D" uid="uid://dk41qa4ukmbt3" path="res://Assets/Tools/Axe/SilverAxe.png" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://bwrsrbbokixnx" path="res://Assets/Tools/Axe/GoldAxe.png" id="7_jw32o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -33,6 +35,7 @@ albedo_color = Color(0.09104932, 0.5521032, 0.12538815, 1)
 
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
+_maxTrees = 20
 
 [node name="Environment" type="Node3D" parent="." unique_id=1679031681]
 
@@ -168,9 +171,10 @@ offset_right = 125.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_pbw6q")
+texture = ExtResource("5_jw32o")
 
-[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=910209082]
+[node name="LevelOneButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=910209082]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 text = "Upgrade 1"
@@ -196,9 +200,10 @@ offset_right = 125.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_pbw6q")
+texture = ExtResource("6_v1gob")
 
-[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1709154321]
+[node name="LevelTwoButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1709154321]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 text = "Upgrade 2"
@@ -224,9 +229,10 @@ offset_right = 125.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_pbw6q")
+texture = ExtResource("7_jw32o")
 
-[node name="Button" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=389436503]
+[node name="LevelThreeButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=389436503]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 text = "Upgrade 3"

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bixmasygo07a0" path="res://Assets/Tree/Tree.glb" id="1_nhmoe"]
 [ext_resource type="Resource" uid="uid://tbq6cw0kwf7y" path="res://Assets/Tree/Resources/Stick.tres" id="2_wf1u4"]
 [ext_resource type="Resource" uid="uid://mrufls0hojwh" path="res://Assets/Tree/Resources/Wood.tres" id="3_rnwde"]
-[ext_resource type="AudioStream" uid="uid://6wn4yxdow45w" path="res://Assets/Tree/musicholder-chopping-tree-root-212654.wav" id="5_wmd5q"]
+[ext_resource type="AudioStream" uid="uid://6wn4yxdow45w" path="res://Assets/Tree/Resources/musicholder-chopping-tree-root-212654.wav" id="5_wmd5q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rnwde"]
 friction = 0.3

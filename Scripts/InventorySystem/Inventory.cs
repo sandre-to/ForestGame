@@ -111,4 +111,9 @@ public partial class Inventory : Node
             GD.Print(item);
         }
     }
+
+    public Array<ItemData> GetInventory()
+    {
+        return Items;
+    }
 }

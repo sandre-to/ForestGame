@@ -1,74 +1,63 @@
-using System.Diagnostics.Tracing;
 using Godot;
+using Godot.Collections;
 using Scripts.InventorySystem;
 
 namespace Scripts.UpgradeSystem;
 public partial class Upgrade : Node
 {
-    public enum ToolLevels
-    {
-        LevelOne = 300,
-        LevelTwo = 700,
-        LevelThree = 1500
-    }
-
     public static Upgrade Instance { get; private set; }
+
+    [Export]
+    public Array<Requirement> Requirements = [];
+
+    private Inventory inventory;
 
     public override void _Ready()
     {
         Instance = this;
+        inventory = Inventory.Instance;
     }
 
-    public void UpgradeStats(int level, string toolId, string itemId, float updatePercentage)
+    public void UpgradeStats(string toolId, float percentage)
     {
-        // Get the tool that needs upgrading
-        var tool = Inventory.Instance.GetTool(toolId);
-        if (tool == null) return;
-        
-        // What material does the tool need to upgrade?
-        var material = Inventory.Instance.GetItem(itemId);
-        if (material == null) return;
-        
-        if (CanUpgrade(level, material))
+        // Get the tool that will be upgraded
+        var tool = inventory.GetTool(toolId);
+        if (tool == null)
         {
-            if (level == 1)
-            {
-                Inventory.Instance.RemoveItem(material.Id, (int)ToolLevels.LevelOne);
-                GD.Print("Tool Level 1!");
-            }
-            else if (level == 2)
-            {
-                Inventory.Instance.RemoveItem(material.Id, (int)ToolLevels.LevelTwo);
-                GD.Print("Tool Level 2!");
-            }
-            else if (level == 3)
-            {
-                Inventory.Instance.RemoveItem(material.Id, (int)ToolLevels.LevelThree);
-                GD.Print("Tool Level 3!");
-            }
+            GD.Print("Tool does not exist in inventory");
+            return;
+        }
 
-            tool.GatheringTime /= updatePercentage;
-            tool.Damage *= updatePercentage;
-            GD.Print($"Tool stats: Damage {tool.Damage}, Gather Timer {tool.GatheringTime}");
-        }
-        else
-        {
-            GD.Print("Missing some resources");
-        }
+        tool.Damage *= percentage;
+        tool.GatheringTime /= percentage;
+        GD.Print($"New stats: Damage: {tool.Damage}, Gathering time: {tool.GatheringTime}");
     }
 
-    public bool CanUpgrade(int level, ItemData item)
+    public bool CanUpgrade(string reqId)
     {
-        switch (level)
+        // Find the requirements array first
+        Requirement requirement = FindRequirement(reqId);
+
+        // Find all the items in the inventory
+        Array<ItemData> currentInventory = inventory.GetInventory();
+
+        foreach (var item in requirement.Materials)
         {
-            case 1: 
-                return item.Amount >= (int)ToolLevels.LevelOne;
-            case 2:
-                return item.Amount >= (int)ToolLevels.LevelTwo;
-            case 3:
-                return item.Amount >= (int)ToolLevels.LevelThree;
-            default: 
-                return false; 
+            GD.Print(item);
         }
+        
+        return true;
+    }
+
+    public Requirement FindRequirement(string Id)
+    {
+        foreach (Requirement req in Requirements)
+        {
+            if (req.Id == Id)
+            {
+                return req;
+            }
+        }
+        return null;
     }
 }

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ToolData" format=3 uid="uid://bojh34ojrhtvg"]
 
 [ext_resource type="Script" uid="uid://b1wo8xcavwwju" path="res://Scripts/InventorySystem/ToolData.cs" id="1_73aoi"]
-[ext_resource type="Texture2D" uid="uid://conpjemhc776p" path="res://Assets/Tools/Axe/Axe.png" id="1_e3chl"]
+[ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/WoodAxe.png" id="1_e3chl"]
 
 [resource]
 script = ExtResource("1_73aoi")

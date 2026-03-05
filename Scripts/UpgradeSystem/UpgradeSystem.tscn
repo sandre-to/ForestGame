@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cea4k0w3qm2lb"]
 
 [ext_resource type="Script" uid="uid://j3uaewb0u0sx" path="res://Scripts/UpgradeSystem/Upgrade.cs" id="1_cluxm"]
+[ext_resource type="Script" uid="uid://bgatddyc764fo" path="res://Scripts/UpgradeSystem/Requirement.cs" id="2_8dfjv"]
+[ext_resource type="Resource" uid="uid://h3ok1druj10s" path="res://Assets/Tools/Axe/AxeLevel1.tres" id="3_8dfjv"]
 
 [node name="UpgradeSystem" type="Node" unique_id=82525953]
 script = ExtResource("1_cluxm")
+Requirements = Array[ExtResource("2_8dfjv")]([ExtResource("3_8dfjv")])
