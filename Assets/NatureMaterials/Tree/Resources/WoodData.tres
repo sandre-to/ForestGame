@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mrufls0hojwh"]
 
-[ext_resource type="Texture2D" uid="uid://vlhgnf1ogo8m" path="res://Assets/Tree/Resources/Wood.png" id="1_xivl6"]
+[ext_resource type="Texture2D" uid="uid://vlhgnf1ogo8m" path="res://Assets/NatureMaterials/Tree/Resources/Wood.png" id="1_xivl6"]
 [ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="2_wj7ld"]
 
 [resource]

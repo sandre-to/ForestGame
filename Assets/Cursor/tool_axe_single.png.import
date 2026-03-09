@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7cmavqp6yrp"
-path="res://.godot/imported/tool_axe_single.png-37b6b42cd0dc05ff0c9bf89a5e5e07b9.ctex"
+path="res://.godot/imported/tool_axe_single.png-b1f723e0e65a98d6f5679b4638509524.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tools/Axe/tool_axe_single.png"
-dest_files=["res://.godot/imported/tool_axe_single.png-37b6b42cd0dc05ff0c9bf89a5e5e07b9.ctex"]
+source_file="res://Assets/Cursor/tool_axe_single.png"
+dest_files=["res://.godot/imported/tool_axe_single.png-b1f723e0e65a98d6f5679b4638509524.ctex"]
 
 [params]
 

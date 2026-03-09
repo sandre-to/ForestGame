@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl24w1kn2fhuu"
-path="res://.godot/imported/Stick.png-1960a83ed73993554d0c82d08f0bddc0.ctex"
+uid="uid://vlhgnf1ogo8m"
+path="res://.godot/imported/Wood.png-c20fdcac2b0b5404e6b974b105299636.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tree/Resources/Stick.png"
-dest_files=["res://.godot/imported/Stick.png-1960a83ed73993554d0c82d08f0bddc0.ctex"]
+source_file="res://Assets/NatureMaterials/Tree/Resources/Wood.png"
+dest_files=["res://.godot/imported/Wood.png-c20fdcac2b0b5404e6b974b105299636.ctex"]
 
 [params]
 

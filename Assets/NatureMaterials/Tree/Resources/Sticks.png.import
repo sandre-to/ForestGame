@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chpok2y5uilrv"
-path="res://.godot/imported/hand_point.png-1a3948eac291142126d66dec3013549c.ctex"
+uid="uid://bl24w1kn2fhuu"
+path="res://.godot/imported/Sticks.png-9a867ce7766e42fad8688a57367a8f97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cursor/hand_point.png"
-dest_files=["res://.godot/imported/hand_point.png-1a3948eac291142126d66dec3013549c.ctex"]
+source_file="res://Assets/NatureMaterials/Tree/Resources/Sticks.png"
+dest_files=["res://.godot/imported/Sticks.png-9a867ce7766e42fad8688a57367a8f97.ctex"]
 
 [params]
 

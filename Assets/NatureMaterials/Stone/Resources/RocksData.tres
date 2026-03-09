@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mq2rq5rklg5b"]
+
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="1_dqt1c"]
+
+[resource]
+script = ExtResource("1_dqt1c")
+Id = "rocks_material"
+Name = "Rocks"
+Description = "Small rocks from a big stone."
+metadata/_custom_type_script = "uid://c61682u0snr1s"

@@ -28,8 +28,8 @@ public partial class Upgrade : Node
             return;
         }
 
-        tool.Damage *= percentage;
-        tool.GatheringTime /= percentage;
+        tool.Damage *= 1 + percentage;
+        tool.GatheringTime /= 1 + percentage;
         GD.Print($"New stats: Damage: {tool.Damage}, Gathering time: {tool.GatheringTime}");
     }
 

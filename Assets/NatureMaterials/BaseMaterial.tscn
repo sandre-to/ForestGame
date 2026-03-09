@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0h4qxjv1i6vq"]
+
+[ext_resource type="Script" uid="uid://6213dk7ero3f" path="res://Assets/NatureMaterials/BaseMaterial.cs" id="1_jyal6"]
+
+[node name="BaseMaterial" type="RigidBody3D" unique_id=1235974922]
+script = ExtResource("1_jyal6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08333188, 0.6156082, 0.010123193)
+
+[node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="." unique_id=1015811503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044175, 0)
+aabb = AABB(-1.2801375, -2, -1.3803021, 2.560275, 4, 2.7606041)
+
+[node name="GatherTimer" type="Timer" parent="." unique_id=1269762094]
+one_shot = true

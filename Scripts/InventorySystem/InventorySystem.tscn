@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://boffyhwqa55x3"]
 
 [ext_resource type="Script" uid="uid://c7tehyibudemb" path="res://Scripts/InventorySystem/Inventory.cs" id="1_cndij"]
-[ext_resource type="Resource" uid="uid://bojh34ojrhtvg" path="res://Assets/Tools/Axe/Axe.tres" id="2_4aj04"]
+[ext_resource type="Resource" uid="uid://bojh34ojrhtvg" path="res://Assets/Tools/Axe/AxeData.tres" id="2_4aj04"]
 [ext_resource type="Script" uid="uid://b1wo8xcavwwju" path="res://Scripts/InventorySystem/ToolData.cs" id="2_oon6n"]
 
 [node name="InventorySystem" type="Node" unique_id=560677316]

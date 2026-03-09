@@ -35,8 +35,10 @@ public partial class UpgradePanel : Control
 
     private void OnLevelOnePressed()
     {
-        if (_upgrade.CanUpgrade("axe_level_1"))
+        if (_upgrade.CanUpgrade("axe_level_1") && !_levelOneButton.Disabled)
         {
+            _upgrade.UpgradeStats("axe_tool", 0.12f);
+            _levelOneButton.Disabled = true;
         }
     }
 }

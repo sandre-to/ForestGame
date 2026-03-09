@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://krjxbkt4y00y"]
 
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/NatureMaterials/Tree/Tree.tscn" id="2_50glp"]
 [ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/Interface/HUD/Hud.cs" id="3_pbw6q"]
 [ext_resource type="Script" uid="uid://uwjfdmjuu2dp" path="res://Assets/Interface/Upgrade/UpgradePanel.cs" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
 [ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/WoodAxe.png" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://dk41qa4ukmbt3" path="res://Assets/Tools/Axe/SilverAxe.png" id="6_v1gob"]
 [ext_resource type="Texture2D" uid="uid://bwrsrbbokixnx" path="res://Assets/Tools/Axe/GoldAxe.png" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://bbv03kgevp212" path="res://Assets/NatureMaterials/Stone/Stone.tscn" id="9_vy5pj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -42,7 +44,6 @@ corner_radius_bottom_left = 12
 
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
-_maxTrees = 10
 
 [node name="Environment" type="Node3D" parent="." unique_id=1679031681]
 
@@ -77,6 +78,9 @@ size = Vector3(7, 1, 7)
 material = SubResource("StandardMaterial3D_r150o")
 
 [node name="Trees" type="Node3D" parent="." unique_id=2067968856]
+
+[node name="Tree" parent="Trees" unique_id=1235974922 instance=ExtResource("2_50glp")]
+transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 0, 2.3941374, 0)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
@@ -252,3 +256,6 @@ custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Upgrade "
+
+[node name="Stone" parent="." unique_id=1997403056 instance=ExtResource("9_vy5pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6673927, 0.45676708, 1.4317842)

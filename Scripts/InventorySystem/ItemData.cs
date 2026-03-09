@@ -9,7 +9,7 @@ public partial class ItemData : Resource
     [Export] public string Name;
     [Export] public Texture2D Image;
 
-    [Export] public int Amount;
+    [Export] public int Amount = 0;
 
     [Export(PropertyHint.MultilineText)] 
     public string Description { get; set; }

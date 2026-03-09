@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_73aoi")
-Damage = 1.5
-GatheringTime = 0.2
+Damage = 1.0
+GatheringTime = 2.0
 Id = "axe_tool"
 Name = "Axe"
 Image = ExtResource("1_e3chl")

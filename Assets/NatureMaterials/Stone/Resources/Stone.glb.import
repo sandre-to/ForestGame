@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bixmasygo07a0"
-path="res://.godot/imported/Tree.glb-77962e1bcf4a13c98937df3f559341fc.scn"
+uid="uid://doviwqpemgd75"
+path="res://.godot/imported/Stone.glb-69855df7747a4d2764be78408f44b46c.scn"
 
 [deps]
 
-source_file="res://Assets/Tree/Tree.glb"
-dest_files=["res://.godot/imported/Tree.glb-77962e1bcf4a13c98937df3f559341fc.scn"]
+source_file="res://Assets/NatureMaterials/Stone/Resources/Stone.glb"
+dest_files=["res://.godot/imported/Stone.glb-69855df7747a4d2764be78408f44b46c.scn"]
 
 [params]
 

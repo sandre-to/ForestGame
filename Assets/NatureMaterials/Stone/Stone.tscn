@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bbv03kgevp212"]
+
+[ext_resource type="PackedScene" uid="uid://doviwqpemgd75" path="res://Assets/NatureMaterials/Stone/Resources/Stone.glb" id="1_ajpgc"]
+[ext_resource type="Script" uid="uid://w6t4aefxkk6s" path="res://Assets/NatureMaterials/Stone/Stone.cs" id="1_ngaiy"]
+[ext_resource type="Resource" uid="uid://cbfscnbm0gt32" path="res://Assets/Tools/Pickaxe/PickaxeData.tres" id="2_vihpx"]
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="3_r5wji"]
+[ext_resource type="Resource" uid="uid://mq2rq5rklg5b" path="res://Assets/NatureMaterials/Stone/Resources/RocksData.tres" id="4_10lrg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rnwde"]
+friction = 0.3
+bounce = 0.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ajpgc"]
+radius = 0.4873047
+
+[node name="Stone" type="RigidBody3D" unique_id=1235974922]
+mass = 4.0
+physics_material_override = SubResource("PhysicsMaterial_rnwde")
+can_sleep = false
+linear_damp = 0.1
+angular_damp = 0.5
+script = ExtResource("1_ngaiy")
+Tool = ExtResource("2_vihpx")
+DroppableMaterials = Array[ExtResource("3_r5wji")]([ExtResource("4_10lrg")])
+
+[node name="StoneMesh" parent="." unique_id=1845971793 instance=ExtResource("1_ajpgc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
+transform = Transform3D(1, 0, 0, 0, -1.5893256e-08, -1, 0, 1, -1.5893256e-08, 0.062074006, 0.25830436, 0.010123193)
+shape = SubResource("CapsuleShape3D_ajpgc")
+
+[node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="." unique_id=1015811503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044175, 0)
+aabb = AABB(-1.2801375, -2, -1.3803021, 2.560275, 4, 2.7606041)
+
+[node name="GatherTimer" type="Timer" parent="." unique_id=1269762094]
+one_shot = true
