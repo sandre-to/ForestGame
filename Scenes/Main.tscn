@@ -72,7 +72,7 @@ material = SubResource("StandardMaterial3D_idj7w")
 
 [node name="Floor" type="CSGBox3D" parent="Room" unique_id=885085702]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8084345, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36044264, 0)
 use_collision = true
 size = Vector3(7, 1, 7)
 material = SubResource("StandardMaterial3D_r150o")
@@ -80,12 +80,13 @@ material = SubResource("StandardMaterial3D_r150o")
 [node name="Trees" type="Node3D" parent="." unique_id=2067968856]
 
 [node name="Tree" parent="Trees" unique_id=1235974922 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 0, 2.3941374, 0)
+transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 1.6048487, 2.3941374, 1.0817915)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
 projection = 1
-size = 8.0
+current = true
+size = 7.5
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=86818144]
 script = ExtResource("3_pbw6q")
@@ -258,4 +259,4 @@ size_flags_horizontal = 4
 text = "Upgrade "
 
 [node name="Stone" parent="." unique_id=1997403056 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6673927, 0.45676708, 1.4317842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 2.2005727, 1.4317842)

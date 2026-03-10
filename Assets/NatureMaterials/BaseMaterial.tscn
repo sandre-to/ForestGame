@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0h4qxjv1i6vq"]
 
 [ext_resource type="Script" uid="uid://6213dk7ero3f" path="res://Assets/NatureMaterials/BaseMaterial.cs" id="1_jyal6"]
+[ext_resource type="PackedScene" uid="uid://cfckjvnq0dikq" path="res://Scripts/Components/Health/HealthComponent.tscn" id="2_13xbe"]
 
 [node name="BaseMaterial" type="RigidBody3D" unique_id=1235974922]
 script = ExtResource("1_jyal6")
@@ -8,9 +9,16 @@ script = ExtResource("1_jyal6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08333188, 0.6156082, 0.010123193)
 
-[node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="." unique_id=1015811503]
+[node name="Components" type="Node3D" parent="." unique_id=458816424]
+
+[node name="HealthComponent" parent="Components" unique_id=1142621803 instance=ExtResource("2_13xbe")]
+unique_name_in_owner = true
+
+[node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="Components" unique_id=1015811503]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044175, 0)
 aabb = AABB(-1.2801375, -2, -1.3803021, 2.560275, 4, 2.7606041)
 
-[node name="GatherTimer" type="Timer" parent="." unique_id=1269762094]
+[node name="GatherTimer" type="Timer" parent="Components" unique_id=1269762094]
+unique_name_in_owner = true
 one_shot = true

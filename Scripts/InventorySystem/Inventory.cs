@@ -13,6 +13,7 @@ public partial class Inventory : Node
     [Signal]
     public delegate void ToolUiUpdatedEventHandler(ToolData tool);
 
+    
     // Lists of items, equipment, etc.
     [Export]
     private Array<ItemData> Items = [];
@@ -20,10 +21,8 @@ public partial class Inventory : Node
     [Export]
     private Array<ToolData> Tools = [];
 
-    public override void _Ready()
-    {
-        Instance = this;   
-    }
+    
+    public override void _Ready() { Instance = this; }   
 
     public void AddTool(ToolData newTool)
     {

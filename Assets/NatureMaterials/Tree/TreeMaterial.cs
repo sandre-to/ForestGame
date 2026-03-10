@@ -10,6 +10,7 @@ public partial class TreeMaterial : BaseMaterial
         if (@event.IsActionPressed("Click"))
         {
             GD.Print("Clicked on a tree");
+            HealthComponent.TakeDamage(Tool.Damage);
         }
 
     }

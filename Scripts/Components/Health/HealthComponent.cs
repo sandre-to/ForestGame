@@ -5,9 +5,13 @@ namespace Scripts.Components;
 [GlobalClass]
 public partial class HealthComponent : Node3D
 {
-    [Export] public float Health { get; set; } = 0.0f;
-    [Export] public Node ParentNode { get; set; }
+    [Export] 
+    public float Health { get; set; } = 0.0f;
+    
+    [Export] 
+    public Node ParentNode { get; set; }
 
+    
     public override void _Ready()
     {
         if (ParentNode == null)
@@ -24,5 +28,10 @@ public partial class HealthComponent : Node3D
         {
             ParentNode.QueueFree();
         }
+    }
+
+    public void ChangeHealth(float newHealth)
+    {
+        Health = newHealth;
     }
 }

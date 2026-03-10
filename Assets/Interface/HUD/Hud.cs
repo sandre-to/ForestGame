@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 using Scripts.InventorySystem;
 
@@ -6,7 +7,8 @@ namespace Assets.HUD;
 [GlobalClass]
 public partial class Hud : CanvasLayer
 {
-    [Export] private PackedScene _slotScene;
+    [Export] 
+    private PackedScene _slotScene;
 
     private VBoxContainer _slots;
 
@@ -18,7 +20,7 @@ public partial class Hud : CanvasLayer
 
     private void OnHudUpdated(ItemData item)
     {
-        foreach (Slot slot in _slots.GetChildren())
+        foreach (Slot slot in _slots.GetChildren().Cast<Slot>())
         {
             if (_slots.GetChildren().Count == 0) break;
 
