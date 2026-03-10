@@ -1,4 +1,6 @@
+using Assets.NatureMaterials;
 using Godot;
+using Scripts.InventorySystem;
 
 namespace Scripts.Components;
 
@@ -9,7 +11,7 @@ public partial class HealthComponent : Node3D
     public float Health { get; set; } = 0.0f;
     
     [Export] 
-    public Node ParentNode { get; set; }
+    public BaseMaterial ParentNode { get; set; }
 
     
     public override void _Ready()
@@ -26,6 +28,8 @@ public partial class HealthComponent : Node3D
 
         if (Health <= 0)
         {
+            Inventory.Instance.AddTool(ParentNode.Tool);
+            ParentNode.DropMaterials();
             ParentNode.QueueFree();
         }
     }

@@ -1,4 +1,5 @@
 using Godot;
+using Scripts.InventorySystem;
 
 namespace Assets.NatureMaterials;
 [GlobalClass]
@@ -9,9 +10,23 @@ public partial class TreeMaterial : BaseMaterial
     {
         if (@event.IsActionPressed("Click"))
         {
-            GD.Print("Clicked on a tree");
-            HealthComponent.TakeDamage(Tool.Damage);
+            if (Tool.Amount >= 1)
+            {
+                Inventory.RemoveTool(Tool);
+                GD.Print("Starting timer...");
+                GatherTimer.Start();
+            }
         }
+    }
 
+    protected override void OnGatherTimeout()
+    {
+        HealthComponent.TakeDamage(Tool.Damage);
+        GD.Print($"Health: {HealthComponent.Health}");
+    }
+
+    protected override void ChangeMouseCursor()
+    {
+        Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Cursor/tool_axe_single.png"));
     }
 }

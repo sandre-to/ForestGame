@@ -30,7 +30,6 @@ shape = SubResource("BoxShape3D_nhmoe")
 
 [node name="GatherTimer" type="Timer" parent="Components" unique_id=1269762094]
 unique_name_in_owner = true
-one_shot = true
 
 [node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="Components" unique_id=1015811503]
 unique_name_in_owner = true
@@ -39,5 +38,5 @@ aabb = AABB(-0.90566325, -1.4960706, -1.0431685, 1.8113265, 2.9921412, 2.086337)
 
 [node name="HealthComponent" parent="Components" unique_id=1142621803 node_paths=PackedStringArray("ParentNode") instance=ExtResource("7_vc1gn")]
 unique_name_in_owner = true
-Health = 5.0
+Health = 6.0
 ParentNode = NodePath("../..")

@@ -10,19 +10,22 @@ public partial class BaseMaterial : RigidBody3D
 {
 	// --- Exported properties ---
 	[Export] 
-    protected ToolData Tool { get; set; }
+    public ToolData Tool { get; set; }
     
     [Export] 
     protected Array<ItemData> DroppableMaterials = [];
 
 	// --- Node references ---
-    protected Timer GatherTimer { get; set; }
+    public Timer GatherTimer { get; set; }
     protected VisibleOnScreenNotifier3D VisibleBox { get; set; }
     protected CollisionShape3D Collision { get; set; }
     protected HealthComponent HealthComponent { get; set; }
 
 	// --- Flags ---
-	protected bool CanGather = false;
+	protected bool CanGather = true;
+
+    // INVENTORY
+    protected Inventory Inventory { get; private set; }
 
 	// Get references ready when entering scene tree
     public override void _EnterTree()
@@ -35,17 +38,28 @@ public partial class BaseMaterial : RigidBody3D
 
     public override void _Ready()
     {
-		// Remove the object when outside the game screen
+        Inventory = Inventory.Instance;
+		
+        // Remove the object when outside the game screen
         VisibleBox.ScreenExited += () => QueueFree();
         UpdateToolStats();
 
         // Set up signals for the different nodes
         this.InputEvent += ClickedOnMaterial;
         GatherTimer.Timeout += OnGatherTimeout;
+        GatherTimer.OneShot = false;
+
+        // Change cursor when mouse has entered/exited object
+        MouseExited += () => Input.SetCustomMouseCursor(
+            ResourceLoader.Load("res://Assets/Cursor/hand_point.png")
+        );
+
+        MouseEntered += ChangeMouseCursor;
     }
 
-    protected void DropMaterials()
+    public void DropMaterials()
     {
+        // Loop through everything this base material has and add them to the inventory
         foreach (var item in DroppableMaterials)
         {
             Inventory.Instance.AddItem(item, GD.RandRange(1, 5));
@@ -61,5 +75,5 @@ public partial class BaseMaterial : RigidBody3D
         Vector3 eventPosition, Vector3 normal, long shapeIdx) {}
 
     protected virtual void OnGatherTimeout() {}
-    
+    protected virtual void ChangeMouseCursor() {}
 }

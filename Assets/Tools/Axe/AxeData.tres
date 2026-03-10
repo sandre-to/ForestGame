@@ -10,5 +10,6 @@ GatheringTime = 2.0
 Id = "axe_tool"
 Name = "Axe"
 Image = ExtResource("1_e3chl")
+Amount = 1
 Description = "Axe for chopping trees."
 metadata/_custom_type_script = "uid://b1wo8xcavwwju"

@@ -21,7 +21,7 @@ public partial class Inventory : Node
     [Export]
     private Array<ToolData> Tools = [];
 
-    
+
     public override void _Ready() { Instance = this; }   
 
     public void AddTool(ToolData newTool)
@@ -30,10 +30,24 @@ public partial class Inventory : Node
         {
             if (tool.Id == newTool.Id)
             {
+                tool.Amount++;
                 return;
             }
         }
+
         Tools.Add(newTool);
+        newTool.Amount++;
+    }
+
+    public void RemoveTool(ToolData tool)
+    {
+        var currentTool = GetTool(tool.Id);
+        currentTool.Amount--;
+
+        if (currentTool.Amount <= 0)
+        {
+            currentTool.Amount = 0;
+        } 
     }
 
     public ToolData GetTool(string id)

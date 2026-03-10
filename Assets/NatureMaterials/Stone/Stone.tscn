@@ -32,15 +32,15 @@ shape = SubResource("CapsuleShape3D_ajpgc")
 
 [node name="Components" type="Node3D" parent="." unique_id=478456810]
 
+[node name="GatherTimer" type="Timer" parent="Components" unique_id=1269762094]
+unique_name_in_owner = true
+
 [node name="VisibleOnScreen" type="VisibleOnScreenNotifier3D" parent="Components" unique_id=1015811503]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.044175, 0)
 aabb = AABB(-1.2801375, -2, -1.3803021, 2.560275, 4, 2.7606041)
 
-[node name="GatherTimer" type="Timer" parent="Components" unique_id=1269762094]
-unique_name_in_owner = true
-one_shot = true
-
 [node name="HealthComponent" parent="Components" unique_id=1142621803 node_paths=PackedStringArray("ParentNode") instance=ExtResource("6_10lrg")]
 unique_name_in_owner = true
+Health = 6.0
 ParentNode = NodePath("../..")
