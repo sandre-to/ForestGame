@@ -17,6 +17,7 @@ public partial class BaseMaterial : RigidBody3D
 
 	// --- Node references ---
     public Timer GatherTimer { get; set; }
+    public AudioStreamPlayer3D GatherSound { get; set; }
     protected VisibleOnScreenNotifier3D VisibleBox { get; set; }
     protected CollisionShape3D Collision { get; set; }
     protected HealthComponent HealthComponent { get; set; }
@@ -31,6 +32,7 @@ public partial class BaseMaterial : RigidBody3D
     public override void _EnterTree()
     {
         GatherTimer = GetNode<Timer>("%GatherTimer");
+        GatherSound = GetNode<AudioStreamPlayer3D>("%GatherSound");
 		VisibleBox = GetNode<VisibleOnScreenNotifier3D>("%VisibleOnScreen");
 		Collision = GetNode<CollisionShape3D>("CollisionShape3D");
         HealthComponent = GetNode<HealthComponent>("%HealthComponent");
@@ -41,7 +43,11 @@ public partial class BaseMaterial : RigidBody3D
         Inventory = Inventory.Instance;
 		
         // Remove the object when outside the game screen
-        VisibleBox.ScreenExited += () => QueueFree();
+        VisibleBox.ScreenExited += () => 
+        {
+            Inventory.AddTool(Tool);
+            QueueFree();
+        };
         UpdateToolStats();
 
         // Set up signals for the different nodes
@@ -62,7 +68,7 @@ public partial class BaseMaterial : RigidBody3D
         // Loop through everything this base material has and add them to the inventory
         foreach (var item in DroppableMaterials)
         {
-            Inventory.Instance.AddItem(item, GD.RandRange(1, 5));
+            Inventory.Instance.AddItem(item, GD.RandRange(10, 30));
         }
     }
 

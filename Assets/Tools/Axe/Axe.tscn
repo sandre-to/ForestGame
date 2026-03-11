@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cvp3njy06nacl"]
+
+[ext_resource type="PackedScene" uid="uid://cqhlwq74f3wj1" path="res://Assets/Tools/Axe/Axe.glb" id="1_hhpad"]
+
+[node name="Axe" type="Node3D" unique_id=972593434]
+
+[node name="Axe" parent="." unique_id=1833107533 instance=ExtResource("1_hhpad")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

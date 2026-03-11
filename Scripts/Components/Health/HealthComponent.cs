@@ -12,7 +12,6 @@ public partial class HealthComponent : Node3D
     
     [Export] 
     public BaseMaterial ParentNode { get; set; }
-
     
     public override void _Ready()
     {
@@ -22,7 +21,7 @@ public partial class HealthComponent : Node3D
         }
     }
 
-    public void TakeDamage(float amount)
+    public async void TakeDamage(float amount)
     {
         Health -= amount;
 
@@ -30,6 +29,7 @@ public partial class HealthComponent : Node3D
         {
             Inventory.Instance.AddTool(ParentNode.Tool);
             ParentNode.DropMaterials();
+            await ToSignal(ParentNode.GatherSound, AudioStreamPlayer3D.SignalName.Finished);
             ParentNode.QueueFree();
         }
     }

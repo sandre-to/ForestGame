@@ -6,14 +6,16 @@
 [ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="3_vc1gn"]
 [ext_resource type="Resource" uid="uid://mrufls0hojwh" path="res://Assets/NatureMaterials/Tree/Resources/WoodData.tres" id="4_5m8xv"]
 [ext_resource type="Resource" uid="uid://tbq6cw0kwf7y" path="res://Assets/NatureMaterials/Tree/Resources/SticksData.tres" id="5_0uy03"]
+[ext_resource type="PackedScene" uid="uid://cvp3njy06nacl" path="res://Assets/Tools/Axe/Axe.tscn" id="7_5m8xv"]
 [ext_resource type="PackedScene" uid="uid://cfckjvnq0dikq" path="res://Scripts/Components/Health/HealthComponent.tscn" id="7_vc1gn"]
+[ext_resource type="AudioStream" uid="uid://6wn4yxdow45w" path="res://Assets/NatureMaterials/Tree/Resources/musicholder-chopping-tree-root-212654.wav" id="9_0uy03"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3ufxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhmoe"]
 size = Vector3(0.47003174, 1.144537, 0.62841797)
 
-[node name="Tree" type="RigidBody3D" unique_id=1235974922]
+[node name="TreeMaterial" type="RigidBody3D" unique_id=1235974922]
 physics_material_override = SubResource("PhysicsMaterial_3ufxt")
 script = ExtResource("1_ed6u1")
 Tool = ExtResource("2_3ufxt")
@@ -21,6 +23,9 @@ DroppableMaterials = Array[ExtResource("3_vc1gn")]([ExtResource("4_5m8xv"), ExtR
 
 [node name="TreeMesh" parent="." unique_id=1533437788 instance=ExtResource("2_ed6u1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Axe" parent="." unique_id=972593434 instance=ExtResource("7_5m8xv")]
+transform = Transform3D(0.25853172, 0.012191988, -0.96592575, -0.96485347, -0.045501277, -0.25881904, -0.047106378, 0.99888974, -4.2221956e-08, 0.78502226, 0.5363292, 0.101831615)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041187108, 0.6691828, 0.061148584)
@@ -38,5 +43,9 @@ aabb = AABB(-0.90566325, -1.4960706, -1.0431685, 1.8113265, 2.9921412, 2.086337)
 
 [node name="HealthComponent" parent="Components" unique_id=1142621803 node_paths=PackedStringArray("ParentNode") instance=ExtResource("7_vc1gn")]
 unique_name_in_owner = true
-Health = 6.0
+Health = 10.0
 ParentNode = NodePath("../..")
+
+[node name="GatherSound" type="AudioStreamPlayer3D" parent="Components" unique_id=405978298]
+unique_name_in_owner = true
+stream = ExtResource("9_0uy03")

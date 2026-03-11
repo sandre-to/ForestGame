@@ -22,3 +22,6 @@ aabb = AABB(-1.2801375, -2, -1.3803021, 2.560275, 4, 2.7606041)
 [node name="GatherTimer" type="Timer" parent="Components" unique_id=1269762094]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="GatherSound" type="AudioStreamPlayer3D" parent="Components" unique_id=1325569836]
+unique_name_in_owner = true

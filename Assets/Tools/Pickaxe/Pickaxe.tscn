@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dnhoacd4wn7mw"]
+
+[ext_resource type="PackedScene" uid="uid://bgii5mjvar7fc" path="res://Assets/Tools/Pickaxe/Pickaxe.glb" id="1_rkxw8"]
+
+[node name="Pickaxe" type="Node3D" unique_id=1171311771]
+
+[node name="Pickaxe" parent="." unique_id=1141548973 instance=ExtResource("1_rkxw8")]

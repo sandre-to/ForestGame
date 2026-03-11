@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://krjxbkt4y00y"]
 
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/NatureMaterials/Tree/Tree.tscn" id="2_50glp"]
+[ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/NatureMaterials/Tree/TreeMaterial.tscn" id="2_50glp"]
 [ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/Interface/HUD/Hud.cs" id="3_pbw6q"]
 [ext_resource type="Script" uid="uid://uwjfdmjuu2dp" path="res://Assets/Interface/Upgrade/UpgradePanel.cs" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
 [ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/WoodAxe.png" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://dk41qa4ukmbt3" path="res://Assets/Tools/Axe/SilverAxe.png" id="6_v1gob"]
 [ext_resource type="Texture2D" uid="uid://bwrsrbbokixnx" path="res://Assets/Tools/Axe/GoldAxe.png" id="7_jw32o"]
-[ext_resource type="PackedScene" uid="uid://bbv03kgevp212" path="res://Assets/NatureMaterials/Stone/Stone.tscn" id="9_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://bbv03kgevp212" path="res://Assets/NatureMaterials/Stone/StoneMaterial.tscn" id="9_vy5pj"]
 [ext_resource type="Script" uid="uid://cbcym7hm51tmv" path="res://Assets/Interface/HUD/ToolKit.cs" id="10_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://bybfupbuai4vi" path="res://Assets/Tools/Pickaxe/Pickaxe.png" id="11_4kpch"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -81,35 +82,35 @@ material = SubResource("StandardMaterial3D_r150o")
 [node name="NatureMaterials" type="Node3D" parent="." unique_id=2067968856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6987014, 0, -0.8661463)
 
-[node name="Tree" parent="NatureMaterials" unique_id=1235974922 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 1.6048487, 2.3941374, 1.0817915)
-
-[node name="Tree2" parent="NatureMaterials" unique_id=1935975468 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 1.6048487, 2.3941374, 2.5061831)
-
-[node name="Tree3" parent="NatureMaterials" unique_id=2144436300 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 3.0824656, 2.3941374, 2.5061831)
-
-[node name="Tree5" parent="NatureMaterials" unique_id=1017316543 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 0.21068907, 2.3941374, 2.7434776)
-
-[node name="Tree6" parent="NatureMaterials" unique_id=1739871416 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 0.7533438, 2.3941374, 0.33805847)
-
-[node name="Tree7" parent="NatureMaterials" unique_id=1573871764 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 0.863796, 2.3941374, -1.0465515)
-
-[node name="Tree4" parent="NatureMaterials" unique_id=668327731 instance=ExtResource("2_50glp")]
-transform = Transform3D(0.8292035, 0, -0.55894697, 0, 1, 0, 0.55894697, 0, 0.8292035, 3.0824656, 2.3941374, 1.3231697)
-
 [node name="Stone" parent="NatureMaterials" unique_id=1997403056 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 2.2005727, 1.4317842)
-
-[node name="Stone2" parent="NatureMaterials" unique_id=1856807080 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 2.2005727, -1.1373296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 1.3433375, 1.4317842)
 
 [node name="Stone3" parent="NatureMaterials" unique_id=1285109470 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4331703, 2.2005727, -1.1373296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26834178, 1.5369632, -1.3370453)
+
+[node name="TreeMaterial" parent="NatureMaterials" unique_id=1235974922 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43733168, 0)
+
+[node name="TreeMaterial2" parent="NatureMaterials" unique_id=1431405512 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43733168, 2.2632563)
+
+[node name="TreeMaterial3" parent="NatureMaterials" unique_id=1445148983 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.574863, 0.43733168, 2.2632563)
+
+[node name="TreeMaterial4" parent="NatureMaterials" unique_id=435432011 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.574863, 0.43733168, -0.08430219)
+
+[node name="TreeMaterial5" parent="NatureMaterials" unique_id=157681132 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, -0.08430219)
+
+[node name="TreeMaterial6" parent="NatureMaterials" unique_id=487496295 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, 1.8793188)
+
+[node name="TreeMaterial7" parent="NatureMaterials" unique_id=1377505893 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, 3.4325128)
+
+[node name="TreeMaterial8" parent="NatureMaterials" unique_id=1497108825 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, -1.4538751)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
@@ -344,6 +345,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("5_jw32o")
 
 [node name="Panel2" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=984353471]
 custom_minimum_size = Vector2(64, 64)
@@ -358,6 +360,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("11_4kpch")
 
 [node name="Panel3" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=72265261]
 custom_minimum_size = Vector2(64, 64)
