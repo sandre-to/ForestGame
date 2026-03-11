@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqhlwq74f3wj1"
-path="res://.godot/imported/Axe.glb-6bd8a501cec425f7364d866adfd91891.scn"
+path="res://.godot/imported/Axe.glb-b102cfead2d734902bc31a723fbe88f1.scn"
 
 [deps]
 
-source_file="res://Assets/Tools/Axe/Axe.glb"
-dest_files=["res://.godot/imported/Axe.glb-6bd8a501cec425f7364d866adfd91891.scn"]
+source_file="res://Assets/Tools/Axe/Resources/Axe.glb"
+dest_files=["res://.godot/imported/Axe.glb-b102cfead2d734902bc31a723fbe88f1.scn"]
 
 [params]
 

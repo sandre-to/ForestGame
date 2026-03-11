@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Requirement" format=3 uid="uid://bohmh351lkwa8"]
+
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="1_4hnky"]
+[ext_resource type="Script" uid="uid://bgatddyc764fo" path="res://Scripts/UpgradeSystem/Requirement.cs" id="2_gqteg"]
+
+[sub_resource type="Resource" id="Resource_4hnky"]
+script = ExtResource("1_4hnky")
+Id = "stick_material"
+Amount = 200
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_gqteg"]
+script = ExtResource("1_4hnky")
+Id = "wood_material"
+Amount = 100
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[resource]
+script = ExtResource("2_gqteg")
+Id = "buy_axe"
+Materials = Array[ExtResource("1_4hnky")]([SubResource("Resource_4hnky"), SubResource("Resource_gqteg")])
+metadata/_custom_type_script = "uid://bgatddyc764fo"

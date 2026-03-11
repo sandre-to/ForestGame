@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ckmem4g00q58"]
+
+[ext_resource type="Texture2D" uid="uid://djwybsa0d1wjp" path="res://Assets/Interface/HUD/Slot.png" id="1_jwe0y"]
+[ext_resource type="Script" uid="uid://cgiasorgbdb3p" path="res://Assets/Interface/HUD/ToolSlot.cs" id="2_doq54"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_doq54"]
+texture = ExtResource("1_jwe0y")
+
+[node name="ToolSlot" type="Panel" unique_id=1902631558]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.09900001
+offset_right = -64.512
+offset_bottom = -64.15201
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_doq54")
+script = ExtResource("2_doq54")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1966914483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1756306563]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -28.0
+offset_right = 19.0
+offset_bottom = -5.0
+grow_vertical = 0

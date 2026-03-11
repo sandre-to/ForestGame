@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ToolData" format=3 uid="uid://bojh34ojrhtvg"]
+
+[ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/Resources/WoodAxe.png" id="1_q0gtx"]
+[ext_resource type="Script" uid="uid://b1wo8xcavwwju" path="res://Scripts/InventorySystem/ToolData.cs" id="2_tehft"]
+
+[resource]
+script = ExtResource("2_tehft")
+ShopId = "buy_axe"
+Damage = 1.0
+GatheringTime = 2.0
+Id = "axe_tool"
+Name = "Axe"
+Image = ExtResource("1_q0gtx")
+Amount = 1
+Description = "Axe for chopping trees."
+metadata/_custom_type_script = "uid://b1wo8xcavwwju"

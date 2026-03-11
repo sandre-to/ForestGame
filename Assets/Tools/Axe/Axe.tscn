@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvp3njy06nacl"]
 
-[ext_resource type="PackedScene" uid="uid://cqhlwq74f3wj1" path="res://Assets/Tools/Axe/Axe.glb" id="1_hhpad"]
+[ext_resource type="PackedScene" uid="uid://cqhlwq74f3wj1" path="res://Assets/Tools/Axe/Resources/Axe.glb" id="1_hhpad"]
 
 [node name="Axe" type="Node3D" unique_id=972593434]
 

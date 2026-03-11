@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Requirement" format=3 uid="uid://b4my16euwob5v"]
+
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="1_lrkvd"]
+[ext_resource type="Script" uid="uid://bgatddyc764fo" path="res://Scripts/UpgradeSystem/Requirement.cs" id="2_g64kj"]
+
+[sub_resource type="Resource" id="Resource_b0kvi"]
+script = ExtResource("1_lrkvd")
+Id = "stick_material"
+Name = "SticksRequired"
+Amount = 300
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_rujy3"]
+script = ExtResource("1_lrkvd")
+Id = "wood_material"
+Name = "WoodRequired"
+Amount = 200
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_lrkvd"]
+script = ExtResource("1_lrkvd")
+Id = "rocks_material"
+Name = "RocksRequired"
+Amount = 200
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[resource]
+script = ExtResource("2_g64kj")
+Id = "axe_level_2"
+Materials = Array[ExtResource("1_lrkvd")]([SubResource("Resource_b0kvi"), SubResource("Resource_rujy3"), SubResource("Resource_lrkvd")])
+metadata/_custom_type_script = "uid://bgatddyc764fo"

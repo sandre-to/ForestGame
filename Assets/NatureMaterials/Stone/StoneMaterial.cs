@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 namespace Assets.NatureMaterials;
 
@@ -7,6 +6,7 @@ namespace Assets.NatureMaterials;
 public partial class StoneMaterial : BaseMaterial
 {
     private Node3D Pickaxe { get; set; }
+    private Vector3 OriginalRotation { get; set; }
 
     public override void _Ready()
     {
@@ -14,6 +14,7 @@ public partial class StoneMaterial : BaseMaterial
 
         Pickaxe = GetNode<Node3D>("Pickaxe");
         Pickaxe.Hide();
+        OriginalRotation = Pickaxe.RotationDegrees;
     }
 
     protected override void ClickedOnMaterial(Node camera, InputEvent @event, 
@@ -42,18 +43,15 @@ public partial class StoneMaterial : BaseMaterial
         Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Cursor/tool_pickaxe.png"));
     }
 
-    private async void MineStone()
+    private void MineStone()
     {   
         Inventory.AddItem(DroppableMaterials[0], GD.RandRange(3, 8));
 
         // Animation for the pickaxe
         GatherSound.Play();
-        var originalRotation = Pickaxe.RotationDegrees;
         var tween = GetTree().CreateTween();
-        tween.TweenProperty(Pickaxe, "rotation_degrees", new Vector3(90, originalRotation.Y, originalRotation.Z), 0.05);
-        tween.TweenProperty(Pickaxe, "rotation_degrees", originalRotation, Tool.GatheringTime);
-
-        await ToSignal(tween, Tween.SignalName.Finished);
+        tween.TweenProperty(Pickaxe, "rotation_degrees", new Vector3(90, OriginalRotation.Y, OriginalRotation.Z), 0.1);
+        tween.TweenProperty(Pickaxe, "rotation_degrees", OriginalRotation, Tool.GatheringTime );
         HealthComponent.TakeDamage(Tool.Damage);
     }
 }

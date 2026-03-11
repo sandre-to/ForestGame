@@ -45,19 +45,15 @@ public partial class TreeMaterial : BaseMaterial
         Input.SetCustomMouseCursor(ResourceLoader.Load("res://Assets/Cursor/tool_axe_single.png"));
     }
 
-    private async void ChopTree()
+    private void ChopTree()
     {
         Inventory.AddItem(DroppableMaterials[1], GD.RandRange(3, 5));
 
         // All the visuals starts here
         GatherSound.Play();
-        var originalRotation = AxeMesh.Rotation;
         var tween = GetTree().CreateTween();
         tween.TweenProperty(AxeMesh, "rotation_degrees", new Vector3(0, -180f, -90), 0.1);
         tween.TweenProperty(AxeMesh, "rotation_degrees", new Vector3(0, -90f, -90), Tool.GatheringTime);
-        
-        await ToSignal(tween, Tween.SignalName.Finished);
         HealthComponent.TakeDamage(Tool.Damage);
-        GD.Print($"Health: {HealthComponent.Health}");
     }
 }

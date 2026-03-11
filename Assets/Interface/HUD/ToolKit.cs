@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 
 namespace Assets.HUD;
 [GlobalClass]
@@ -17,5 +18,10 @@ public partial class ToolKit : Control
         {
             GD.Print(slot);
         }
+    }
+
+    public Array<Node> GetToolSlots()
+    {
+        return ToolContainer.GetChildren();
     }
 }

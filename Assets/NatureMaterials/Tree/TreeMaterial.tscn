@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctcdncf02qqq2"]
 
 [ext_resource type="Script" uid="uid://b1lat6xp4o0h8" path="res://Assets/NatureMaterials/Tree/TreeMaterial.cs" id="1_ed6u1"]
-[ext_resource type="Resource" uid="uid://bojh34ojrhtvg" path="res://Assets/Tools/Axe/AxeData.tres" id="2_3ufxt"]
+[ext_resource type="Resource" uid="uid://bojh34ojrhtvg" path="res://Assets/Tools/Axe/Resources/AxeData.tres" id="2_3ufxt"]
 [ext_resource type="PackedScene" uid="uid://3hvg6xtyuaro" path="res://Assets/NatureMaterials/Tree/Resources/Tree.glb" id="2_ed6u1"]
 [ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="3_vc1gn"]
 [ext_resource type="Resource" uid="uid://mrufls0hojwh" path="res://Assets/NatureMaterials/Tree/Resources/WoodData.tres" id="4_5m8xv"]
@@ -10,22 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://cfckjvnq0dikq" path="res://Scripts/Components/Health/HealthComponent.tscn" id="7_vc1gn"]
 [ext_resource type="AudioStream" uid="uid://6wn4yxdow45w" path="res://Assets/NatureMaterials/Tree/Resources/musicholder-chopping-tree-root-212654.wav" id="9_0uy03"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3ufxt"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhmoe"]
 size = Vector3(0.47003174, 1.144537, 0.62841797)
 
 [node name="TreeMaterial" type="RigidBody3D" unique_id=1235974922]
-physics_material_override = SubResource("PhysicsMaterial_3ufxt")
 script = ExtResource("1_ed6u1")
 Tool = ExtResource("2_3ufxt")
 DroppableMaterials = Array[ExtResource("3_vc1gn")]([ExtResource("4_5m8xv"), ExtResource("5_0uy03")])
+Health = 12.0
 
 [node name="TreeMesh" parent="." unique_id=1533437788 instance=ExtResource("2_ed6u1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Axe" parent="." unique_id=972593434 instance=ExtResource("7_5m8xv")]
 transform = Transform3D(0.25853172, 0.012191988, -0.96592575, -0.96485347, -0.045501277, -0.25881904, -0.047106378, 0.99888974, -4.2221956e-08, 0.78502226, 0.5363292, 0.101831615)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131383166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041187108, 0.6691828, 0.061148584)
@@ -43,7 +42,6 @@ aabb = AABB(-0.90566325, -1.4960706, -1.0431685, 1.8113265, 2.9921412, 2.086337)
 
 [node name="HealthComponent" parent="Components" unique_id=1142621803 node_paths=PackedStringArray("ParentNode") instance=ExtResource("7_vc1gn")]
 unique_name_in_owner = true
-Health = 10.0
 ParentNode = NodePath("../..")
 
 [node name="GatherSound" type="AudioStreamPlayer3D" parent="Components" unique_id=405978298]

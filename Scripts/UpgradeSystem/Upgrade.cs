@@ -18,10 +18,12 @@ public partial class Upgrade : Node
         inventory = Inventory.Instance;
     }
 
-    public void UpgradeStats(string toolId, float percentage)
+    public void UpgradeStats(string reqId, string toolId, float percentage)
     {
         // Get the tool that will be upgraded
         var tool = inventory.GetTool(toolId);
+        var requirement = FindRequirement(reqId);
+        
         if (tool == null)
         {
             GD.Print("Tool does not exist in inventory");
@@ -30,13 +32,20 @@ public partial class Upgrade : Node
 
         tool.Damage *= 1 + percentage;
         tool.GatheringTime /= 1 + percentage;
+        
+        // Remove items from the inventory
+        foreach (var req in requirement.Materials)
+        {
+            inventory.RemoveItem(req.Id, req.Amount);
+        }
+        
         GD.Print($"New stats: Damage: {tool.Damage}, Gathering time: {tool.GatheringTime}");
     }
 
     public bool CanUpgrade(string reqId)
     {
         // Find the requirements array first
-        Requirement requirement = FindRequirement(reqId);
+        var requirement = FindRequirement(reqId);
         if (requirement == null)
         {
             GD.PushError("Can't find requirements. Check the correct path.");
@@ -50,6 +59,7 @@ public partial class Upgrade : Node
         // Compare requirements with the current items
         foreach (var req in requirement.Materials)
         {   
+            GD.Print($"Current requirement: {req.Name}");
             // Always assume that the player does not have the item
             bool hasMaterial = false;
 
@@ -69,6 +79,7 @@ public partial class Upgrade : Node
 
             if (!hasMaterial)
             {
+                GD.Print($"Checking requirement: {req.Id} Enough? {hasMaterial}.");
                 return false;
             }
         }

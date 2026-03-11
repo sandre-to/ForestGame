@@ -15,12 +15,15 @@ public partial class BaseMaterial : RigidBody3D
     [Export] 
     protected Array<ItemData> DroppableMaterials = [];
 
+    [Export]
+    public float Health = 10.0f;
+
 	// --- Node references ---
     public Timer GatherTimer { get; set; }
     public AudioStreamPlayer3D GatherSound { get; set; }
+    public HealthComponent HealthComponent { get; set; }
     protected VisibleOnScreenNotifier3D VisibleBox { get; set; }
     protected CollisionShape3D Collision { get; set; }
-    protected HealthComponent HealthComponent { get; set; }
 
 	// --- Flags ---
 	protected bool CanGather = true;
@@ -61,6 +64,8 @@ public partial class BaseMaterial : RigidBody3D
         );
 
         MouseEntered += ChangeMouseCursor;
+
+        HealthComponent.ChangeHealth(Health);
     }
 
     public void DropMaterials()

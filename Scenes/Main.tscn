@@ -3,14 +3,12 @@
 [ext_resource type="Script" uid="uid://cr21o41xhe3ft" path="res://Scenes/Main.cs" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://ctcdncf02qqq2" path="res://Assets/NatureMaterials/Tree/TreeMaterial.tscn" id="2_50glp"]
 [ext_resource type="Script" uid="uid://c77xmcmc5sohk" path="res://Assets/Interface/HUD/Hud.cs" id="3_pbw6q"]
-[ext_resource type="Script" uid="uid://uwjfdmjuu2dp" path="res://Assets/Interface/Upgrade/UpgradePanel.cs" id="4_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
-[ext_resource type="Texture2D" uid="uid://bis1qxifwr3ia" path="res://Assets/Tools/Axe/WoodAxe.png" id="5_jw32o"]
-[ext_resource type="Texture2D" uid="uid://dk41qa4ukmbt3" path="res://Assets/Tools/Axe/SilverAxe.png" id="6_v1gob"]
-[ext_resource type="Texture2D" uid="uid://bwrsrbbokixnx" path="res://Assets/Tools/Axe/GoldAxe.png" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://bbv03kgevp212" path="res://Assets/NatureMaterials/Stone/StoneMaterial.tscn" id="9_vy5pj"]
 [ext_resource type="Script" uid="uid://cbcym7hm51tmv" path="res://Assets/Interface/HUD/ToolKit.cs" id="10_bmxlf"]
-[ext_resource type="Texture2D" uid="uid://bybfupbuai4vi" path="res://Assets/Tools/Pickaxe/Pickaxe.png" id="11_4kpch"]
+[ext_resource type="PackedScene" uid="uid://ckmem4g00q58" path="res://Assets/Interface/HUD/ToolSlot.tscn" id="11_4kpch"]
+[ext_resource type="Resource" uid="uid://bojh34ojrhtvg" path="res://Assets/Tools/Axe/Resources/AxeData.tres" id="12_frkhe"]
+[ext_resource type="Resource" uid="uid://cbfscnbm0gt32" path="res://Assets/Tools/Pickaxe/PickaxeData.tres" id="13_1p5hy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c1w88"]
 sky_top_color = Color(0.24072522, 0.43444183, 0.7885818, 1)
@@ -36,13 +34,6 @@ albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r150o"]
 albedo_color = Color(0.09104932, 0.5521032, 0.12538815, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw32o"]
-bg_color = Color(0.12820739, 0.42705694, 0.5005171, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [node name="Main" type="Node3D" unique_id=856742763]
 script = ExtResource("1_rgh2o")
@@ -83,34 +74,55 @@ material = SubResource("StandardMaterial3D_r150o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6987014, 0, -0.8661463)
 
 [node name="Stone" parent="NatureMaterials" unique_id=1997403056 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 1.3433375, 1.4317842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 0.08193016, 1.4317842)
+
+[node name="Stone4" parent="NatureMaterials" unique_id=1235974922 instance=ExtResource("9_vy5pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4679828, 0.08193016, 1.4317842)
+
+[node name="Stone2" parent="NatureMaterials" unique_id=1177810641 instance=ExtResource("9_vy5pj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14817, 0.15384674, -0.5394423)
 
 [node name="Stone3" parent="NatureMaterials" unique_id=1285109470 instance=ExtResource("9_vy5pj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26834178, 1.5369632, -1.3370453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26834178, 0.041166186, -1.3370453)
 
-[node name="TreeMaterial" parent="NatureMaterials" unique_id=1235974922 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43733168, 0)
+[node name="TreeMaterial" parent="NatureMaterials" unique_id=693686996 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20606399, 0)
 
-[node name="TreeMaterial2" parent="NatureMaterials" unique_id=1431405512 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43733168, 2.2632563)
+[node name="TreeMaterial2" parent="NatureMaterials" unique_id=1557441259 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15583283, 2.2632563)
 
-[node name="TreeMaterial3" parent="NatureMaterials" unique_id=1445148983 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.574863, 0.43733168, 2.2632563)
+[node name="TreeMaterial11" parent="NatureMaterials" unique_id=993828654 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15583283, 3.3168898)
 
-[node name="TreeMaterial4" parent="NatureMaterials" unique_id=435432011 instance=ExtResource("2_50glp")]
+[node name="TreeMaterial12" parent="NatureMaterials" unique_id=1095757613 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15583283, 0.9027095)
+
+[node name="TreeMaterial13" parent="NatureMaterials" unique_id=144721651 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.492914, 0.15583283, 0.9027095)
+
+[node name="TreeMaterial3" parent="NatureMaterials" unique_id=689362933 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.574863, 0.19366455, 2.2632563)
+
+[node name="TreeMaterial4" parent="NatureMaterials" unique_id=1061513782 instance=ExtResource("2_50glp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.574863, 0.43733168, -0.08430219)
 
-[node name="TreeMaterial5" parent="NatureMaterials" unique_id=157681132 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, -0.08430219)
+[node name="TreeMaterial5" parent="NatureMaterials" unique_id=101545606 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.19366455, -0.08430219)
 
-[node name="TreeMaterial6" parent="NatureMaterials" unique_id=487496295 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, 1.8793188)
+[node name="TreeMaterial6" parent="NatureMaterials" unique_id=1925134618 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.10096121, 1.8793188)
 
-[node name="TreeMaterial7" parent="NatureMaterials" unique_id=1377505893 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, 3.4325128)
+[node name="TreeMaterial7" parent="NatureMaterials" unique_id=645397399 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.0983786, 3.4325128)
 
-[node name="TreeMaterial8" parent="NatureMaterials" unique_id=1497108825 instance=ExtResource("2_50glp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.43733168, -1.4538751)
+[node name="TreeMaterial9" parent="NatureMaterials" unique_id=1904321993 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7413248, 0.43733168, 3.4325128)
+
+[node name="TreeMaterial10" parent="NatureMaterials" unique_id=1235080653 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0303088, -0.117366195, 3.4325128)
+
+[node name="TreeMaterial8" parent="NatureMaterials" unique_id=958608529 instance=ExtResource("2_50glp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.450994, 0.19366455, -1.4538751)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1045280582]
 transform = Transform3D(0.70710677, -0.40557975, 0.579228, 0, 0.81915194, 0.57357645, -0.70710677, -0.40557975, 0.579228, 3.7718618, 3.4598505, 3.7718618)
@@ -153,140 +165,6 @@ theme_override_constants/margin_bottom = 8
 [node name="SlotContainer" type="VBoxContainer" parent="HUD/Display/Panel/MarginContainer" unique_id=71313634]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="UpgradePanel" type="Control" parent="HUD" unique_id=320691735]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("4_rgh2o")
-
-[node name="Panel" type="Panel" parent="HUD/UpgradePanel" unique_id=1879242812]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -458.0
-offset_top = -231.0
-offset_right = 458.0
-offset_bottom = 231.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/UpgradePanel/Panel" unique_id=315142445]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.97400004
-anchor_bottom = 0.9480001
-offset_left = 24.0
-offset_top = 24.0
-offset_right = -0.184021
-offset_bottom = 0.023956299
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="UpgradeBox" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=800173840]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=131428890]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
-
-[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox/Panel" unique_id=1305557615]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -140.0
-offset_right = 125.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_jw32o")
-
-[node name="LevelOneButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox" unique_id=910209082]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Upgrade"
-
-[node name="UpgradeBox2" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=1294389873]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1887915095]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
-
-[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2/Panel" unique_id=966788099]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -140.0
-offset_right = 125.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_v1gob")
-
-[node name="LevelTwoButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox2" unique_id=1709154321]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Upgrade"
-
-[node name="UpgradeBox3" type="VBoxContainer" parent="HUD/UpgradePanel/Panel/HBoxContainer" unique_id=99449718]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Panel" type="Panel" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=1447644409]
-custom_minimum_size = Vector2(250, 300)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jw32o")
-
-[node name="TextureRect" type="TextureRect" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3/Panel" unique_id=16398098]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -140.0
-offset_right = 125.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_jw32o")
-
-[node name="LevelThreeButton" type="Button" parent="HUD/UpgradePanel/Panel/HBoxContainer/UpgradeBox3" unique_id=389436503]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Upgrade "
 
 [node name="ToolKit" type="Control" parent="HUD" unique_id=693346296]
 layout_mode = 3
@@ -332,60 +210,10 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Panel" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=1079914231]
-custom_minimum_size = Vector2(64, 64)
+[node name="ToolSlot" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=1902631558 instance=ExtResource("11_4kpch")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+Tool = ExtResource("12_frkhe")
 
-[node name="TextureRect" type="TextureRect" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer/Panel" unique_id=1634458608]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_jw32o")
-
-[node name="Panel2" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=984353471]
-custom_minimum_size = Vector2(64, 64)
+[node name="ToolSlot2" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=1600649251 instance=ExtResource("11_4kpch")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer/Panel2" unique_id=8594081]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("11_4kpch")
-
-[node name="Panel3" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=72265261]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer/Panel3" unique_id=1761117437]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel4" type="Panel" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer" unique_id=1680538525]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="HUD/ToolKit/Panel/MarginContainer/ToolContainer/Panel4" unique_id=422275073]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+Tool = ExtResource("13_1p5hy")

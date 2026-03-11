@@ -11,7 +11,7 @@ public partial class Inventory : Node
     public delegate void UpdatedHudEventHandler(ItemData item);
 
     [Signal]
-    public delegate void ToolUiUpdatedEventHandler(ToolData tool);
+    public delegate void ToolUiUpdatedEventHandler();
 
     
     // Lists of items, equipment, etc.
@@ -31,12 +31,15 @@ public partial class Inventory : Node
             if (tool.Id == newTool.Id)
             {
                 tool.Amount++;
+                EmitSignal(SignalName.ToolUiUpdated);
                 return;
             }
         }
 
         Tools.Add(newTool);
         newTool.Amount++;
+        EmitSignal(SignalName.ToolUiUpdated);
+
     }
 
     public void RemoveTool(ToolData tool)
@@ -48,6 +51,8 @@ public partial class Inventory : Node
         {
             currentTool.Amount = 0;
         } 
+
+        EmitSignal(SignalName.ToolUiUpdated);
     }
 
     public ToolData GetTool(string id)

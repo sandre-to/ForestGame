@@ -29,7 +29,7 @@ public partial class HealthComponent : Node3D
         {
             Inventory.Instance.AddTool(ParentNode.Tool);
             ParentNode.DropMaterials();
-            await ToSignal(ParentNode.GatherSound, AudioStreamPlayer3D.SignalName.Finished);
+            await ToSignal(GetTree().CreateTimer(0.2f), Timer.SignalName.Timeout);
             ParentNode.QueueFree();
         }
     }
