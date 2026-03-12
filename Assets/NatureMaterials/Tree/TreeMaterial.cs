@@ -24,8 +24,9 @@ public partial class TreeMaterial : BaseMaterial
     {
         if (@event.IsActionPressed("Click"))
         {
-            if (Tool.Amount >= 1)
+            if (Tool.Amount >= 1 && !IsActive)
             {
+                IsActive = true;
                 Inventory.RemoveTool(Tool);
                 GD.Print("Starting timer...");
                 ChopTree();

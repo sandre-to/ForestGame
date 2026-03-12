@@ -16,6 +16,6 @@ public partial class ItemData : Resource
 
     public override string ToString()
     {
-        return $"Item: {Name} Amount: {Amount}";
+        return $"{Name} => {Amount}";
     }
 }

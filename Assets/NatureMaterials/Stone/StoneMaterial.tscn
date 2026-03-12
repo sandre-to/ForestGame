@@ -18,7 +18,7 @@ angular_damp = 0.5
 script = ExtResource("1_o5aio")
 Tool = ExtResource("2_vihpx")
 DroppableMaterials = Array[ExtResource("3_r5wji")]([ExtResource("4_10lrg")])
-Health = 12.0
+Health = 8.0
 
 [node name="StoneMesh" parent="." unique_id=1845971793 instance=ExtResource("1_ajpgc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -48,3 +48,5 @@ ParentNode = NodePath("../..")
 [node name="GatherSound" type="AudioStreamPlayer3D" parent="Components" unique_id=779534822]
 unique_name_in_owner = true
 stream = ExtResource("8_5eds5")
+volume_db = -7.0
+pitch_scale = 0.94

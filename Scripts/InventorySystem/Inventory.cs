@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using Scripts.UpgradeSystem;
 
 namespace Scripts.InventorySystem;
 public partial class Inventory : Node
@@ -97,9 +98,9 @@ public partial class Inventory : Node
         EmitSignal(SignalName.UpdatedHud, newItem);
     }
 
-    public void RemoveItem(string Id, int amount)
+    public void RemoveItem(string itemId, int amount)
     {
-        var item = GetItem(Id);
+        var item = GetItem(itemId);
 
         item.Amount -= amount;
         if (item.Amount <= 0)
@@ -108,6 +109,24 @@ public partial class Inventory : Node
         }
 
         EmitSignal(SignalName.UpdatedHud, item);
+    }
+
+    public void RemoveItems(string reqId)
+    {
+        // Get the requirements first and store them in a variable
+        var requirements = Upgrade.Instance.FindRequirement(reqId).Materials;
+
+        // Loop through the materials needed and check if it exists in inventory
+        foreach (var req in requirements)
+        {
+            foreach (var item in Items)
+            {
+                if (req.Id == item.Id)
+                {
+                    RemoveItem(item.Id, req.Amount);
+                }
+            }
+        }
     }
 
     public ItemData GetItem(string Id)

@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dk41qa4ukmbt3" path="res://Assets/Tools/Axe/Resources/SilverAxe.png" id="3_jrh7m"]
 [ext_resource type="Texture2D" uid="uid://bwrsrbbokixnx" path="res://Assets/Tools/Axe/Resources/GoldAxe.png" id="4_382fs"]
 [ext_resource type="Script" uid="uid://dk4ho1rckdp12" path="res://Assets/Interface/ShopUI/UpgradeButtons.cs" id="6_jrh7m"]
+[ext_resource type="Script" uid="uid://bgatddyc764fo" path="res://Scripts/UpgradeSystem/Requirement.cs" id="7_fm4ye"]
+[ext_resource type="Resource" uid="uid://h3ok1druj10s" path="res://Assets/Tools/Axe/Resources/AxeLevel1.tres" id="8_4dxsl"]
+[ext_resource type="Resource" uid="uid://b4my16euwob5v" path="res://Assets/Tools/Axe/Resources/AxeLevel2.tres" id="9_7pxgw"]
+[ext_resource type="Resource" uid="uid://gas6f7davcip" path="res://Assets/Tools/Axe/Resources/AxeLevel3.tres" id="10_0plbk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6tys"]
 bg_color = Color(0.68055713, 0.66210645, 0.61230224, 1)
@@ -282,18 +286,23 @@ size_flags_vertical = 4
 theme_override_constants/separation = 12
 alignment = 1
 script = ExtResource("6_jrh7m")
+AxeUpgrades = Array[ExtResource("7_fm4ye")]([ExtResource("8_4dxsl"), ExtResource("9_7pxgw"), ExtResource("10_0plbk")])
 
-[node name="Button" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=392352918]
+[node name="Level1" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=392352918]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
+tooltip_text = "Requirements:
+"
 
-[node name="Button2" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1540436460]
+[node name="Level2" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1540436460]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
+disabled = true
 
-[node name="Button3" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1730442402]
+[node name="Level3" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1730442402]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218091198]
 libraries/ = SubResource("AnimationLibrary_s0gnx")
@@ -305,4 +314,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

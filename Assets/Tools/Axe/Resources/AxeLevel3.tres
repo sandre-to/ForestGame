@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Requirement" format=3 uid="uid://gas6f7davcip"]
+
+[ext_resource type="Script" uid="uid://c61682u0snr1s" path="res://Scripts/InventorySystem/ItemData.cs" id="1_27o07"]
+[ext_resource type="Script" uid="uid://bgatddyc764fo" path="res://Scripts/UpgradeSystem/Requirement.cs" id="2_a2ukq"]
+
+[sub_resource type="Resource" id="Resource_27o07"]
+script = ExtResource("1_27o07")
+Id = "stick_material"
+Name = "Sticks"
+Amount = 500
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_a2ukq"]
+script = ExtResource("1_27o07")
+Id = "wood_material"
+Name = "Wood"
+Amount = 500
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_swh1p"]
+script = ExtResource("1_27o07")
+Id = "rocks_material"
+Name = "Rocks"
+Amount = 400
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[sub_resource type="Resource" id="Resource_clu3m"]
+script = ExtResource("1_27o07")
+Id = "gold_material"
+Name = "Gold"
+Amount = 50
+metadata/_custom_type_script = "uid://c61682u0snr1s"
+
+[resource]
+script = ExtResource("2_a2ukq")
+Id = "axe_level_3"
+Materials = Array[ExtResource("1_27o07")]([SubResource("Resource_27o07"), SubResource("Resource_a2ukq"), SubResource("Resource_swh1p"), SubResource("Resource_clu3m")])
+metadata/_custom_type_script = "uid://bgatddyc764fo"

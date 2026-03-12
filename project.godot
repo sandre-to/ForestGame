@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 
 Inventory="*uid://boffyhwqa55x3"
 Upgrade="*uid://cea4k0w3qm2lb"
+SignalBus="*uid://x1subkwkwq5s"
 
 [display]
 
@@ -66,3 +67,5 @@ OpenShop={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_3d=1
+anti_aliasing/quality/use_taa=true

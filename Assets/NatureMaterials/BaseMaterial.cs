@@ -27,6 +27,7 @@ public partial class BaseMaterial : RigidBody3D
 
 	// --- Flags ---
 	protected bool CanGather = true;
+    public bool IsActive = false;
 
     // INVENTORY
     protected Inventory Inventory { get; private set; }

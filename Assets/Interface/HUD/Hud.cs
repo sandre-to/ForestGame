@@ -1,4 +1,5 @@
 using System.Linq;
+using Assets.ShopUI;
 using Godot;
 using Scripts.InventorySystem;
 
@@ -11,11 +12,17 @@ public partial class Hud : CanvasLayer
     private PackedScene _slotScene;
 
     private VBoxContainer _slots;
+    private Shop _shopUi;
+    private Button _openShop;
 
     public override void _Ready()
     {
         _slots = GetNode<VBoxContainer>("%SlotContainer");
+        _openShop = GetNode<Button>("OpenShop");
+        _shopUi = GetNode<Shop>("Shop");
+
         Inventory.Instance.UpdatedHud += OnHudUpdated;
+        _openShop.Pressed += () => _shopUi.Visible = !_shopUi.Visible; 
     }
 
     private void OnHudUpdated(ItemData item)

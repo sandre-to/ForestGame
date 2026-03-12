@@ -1,6 +1,7 @@
 using Assets.NatureMaterials;
 using Godot;
 using Scripts.InventorySystem;
+using Scripts.SignalManager;
 
 namespace Scripts.Components;
 
@@ -29,7 +30,9 @@ public partial class HealthComponent : Node3D
         {
             Inventory.Instance.AddTool(ParentNode.Tool);
             ParentNode.DropMaterials();
+            ParentNode.IsActive = false;
             await ToSignal(GetTree().CreateTimer(0.2f), Timer.SignalName.Timeout);
+            SignalBus.Instance.EmitSignal(SignalBus.SignalName.GatheredMaterial);
             ParentNode.QueueFree();
         }
     }

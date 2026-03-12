@@ -6,21 +6,21 @@
 [sub_resource type="Resource" id="Resource_b0kvi"]
 script = ExtResource("1_lrkvd")
 Id = "stick_material"
-Name = "SticksRequired"
+Name = "Sticks"
 Amount = 300
 metadata/_custom_type_script = "uid://c61682u0snr1s"
 
 [sub_resource type="Resource" id="Resource_rujy3"]
 script = ExtResource("1_lrkvd")
 Id = "wood_material"
-Name = "WoodRequired"
+Name = "Wood"
 Amount = 200
 metadata/_custom_type_script = "uid://c61682u0snr1s"
 
 [sub_resource type="Resource" id="Resource_lrkvd"]
 script = ExtResource("1_lrkvd")
 Id = "rocks_material"
-Name = "RocksRequired"
+Name = "Rocks"
 Amount = 200
 metadata/_custom_type_script = "uid://c61682u0snr1s"
 

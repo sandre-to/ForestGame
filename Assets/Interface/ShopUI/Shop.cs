@@ -61,6 +61,8 @@ public partial class Shop : Control
         var requirement = Upgrade.Instance.FindRequirement("buy_axe");
         RequirementsLabel.Text = $"Sticks: {requirement.Materials[0].Amount} \nWood: {requirement.Materials[1].Amount}";
         SetButtonIcons(AxeImages);
+        UpgradeButtons.Tool = CurrentTool;
+        UpgradeButtons.SetTooltip(UpgradeButtons.AxeUpgrades);
     }
 
     private void OnPickaxeButtonPressed()
@@ -68,6 +70,7 @@ public partial class Shop : Control
         CurrentTool = Inventory.Instance.GetTool("pickaxe_tool");
         RequirementsLabel.Text = "";
         SetButtonIcons(PickaxeImages);
+        UpgradeButtons.Tool = CurrentTool;
     }
 
     private void OnBuyButtonPressed()
@@ -76,6 +79,7 @@ public partial class Shop : Control
         if (Upgrade.Instance.CanUpgrade(CurrentTool.ShopId))
         {
             Inventory.Instance.AddTool(CurrentTool);
+            Inventory.Instance.RemoveItems(CurrentTool.ShopId);
             GD.Print("Added item!");
         }
     }
