@@ -23,10 +23,10 @@ public partial class Main : Node3D
         {
             Vector3 pos = _gridMap.MapToLocal(cell);
             var tree = _tree.Instantiate<Node3D>();
-            await ToSignal(GetTree().CreateTimer(0.8f), Timer.SignalName.Timeout);
+            await ToSignal(GetTree().CreateTimer(0.25f), Timer.SignalName.Timeout);
             AddChild(tree);
             _totalTrees++;
-            tree.GlobalPosition = pos + new Vector3(0, 0.5f, 0);
+            tree.GlobalPosition = pos + new Vector3(0, 0.8f, 0);
         }
     }
 

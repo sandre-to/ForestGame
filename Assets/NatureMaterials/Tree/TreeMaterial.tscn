@@ -17,9 +17,10 @@ size = Vector3(0.47003174, 1.144537, 0.62841797)
 script = ExtResource("1_ed6u1")
 Tool = ExtResource("2_3ufxt")
 DroppableMaterials = Array[ExtResource("3_vc1gn")]([ExtResource("4_5m8xv"), ExtResource("5_0uy03")])
-Health = 8.0
+Health = 15.0
 
-[node name="tree-pine-small2" parent="." unique_id=2044868997 instance=ExtResource("6_cwetr")]
+[node name="TreeMesh" parent="." unique_id=2044868997 instance=ExtResource("6_cwetr")]
+unique_name_in_owner = true
 
 [node name="Axe" parent="." unique_id=972593434 instance=ExtResource("7_5m8xv")]
 transform = Transform3D(0.25853172, 0.012191988, -0.96592575, -0.96485347, -0.045501277, -0.25881904, -0.047106378, 0.99888974, -4.2221956e-08, 0.78502226, 0.5363292, 0.101831615)

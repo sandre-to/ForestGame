@@ -49,9 +49,9 @@ public partial class BaseMaterial : RigidBody3D
         // Remove the object when outside the game screen
         VisibleBox.ScreenExited += () => 
         {
-            Inventory.AddTool(Tool);
             QueueFree();
         };
+        
         UpdateToolStats();
 
         // Set up signals for the different nodes

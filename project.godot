@@ -22,6 +22,9 @@ SignalBus="*uid://x1subkwkwq5s"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://chpok2y5uilrv"
 

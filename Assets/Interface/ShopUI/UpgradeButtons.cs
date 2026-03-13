@@ -1,7 +1,6 @@
 using Godot;
 using Scripts.InventorySystem;
 using Godot.Collections;
-using System.Linq;
 using Scripts.UpgradeSystem;
 using System;
 
@@ -37,7 +36,12 @@ public partial class UpgradeButtons : HBoxContainer
 
     private void OnFirstUpgradePressed()
     {
-        
+        if (Upgrade.Instance.CanUpgrade(AxeUpgrades[0].Id))
+        {
+            _level1.Disabled = true;
+            _level2.Disabled = false;
+            Upgrade.Instance.UpgradeStats(AxeUpgrades[0].Id, Tool.Id, 0.25f);
+        }
     }
 
     private void OnSecondUpgradePressed()

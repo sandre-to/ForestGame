@@ -52,6 +52,5 @@ public partial class StoneMaterial : BaseMaterial
         var tween = GetTree().CreateTween();
         tween.TweenProperty(Pickaxe, "rotation_degrees", new Vector3(90, OriginalRotation.Y, OriginalRotation.Z), 0.1);
         tween.TweenProperty(Pickaxe, "rotation_degrees", OriginalRotation, Tool.GatheringTime );
-        HealthComponent.TakeDamage(Tool.Damage);
     }
 }

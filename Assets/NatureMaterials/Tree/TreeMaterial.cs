@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Godot;
 using Scripts.InventorySystem;
 
@@ -9,7 +8,8 @@ public partial class TreeMaterial : BaseMaterial
     PackedScene Axe = GD.Load<PackedScene>("res://Assets/Tools/Axe/Axe.tscn");
     
     // --- Component references ---
-    private Node3D AxeMesh { get; set; }
+    private Node3D AxeMesh;
+    private Node3D TreeMesh;
 
     public override void _Ready()
     {
@@ -17,6 +17,8 @@ public partial class TreeMaterial : BaseMaterial
 
         AxeMesh = GetNode<Node3D>("Axe");
         AxeMesh.Hide();
+
+        TreeMesh = GetNode<Node3D>("%TreeMesh");
     }
 
     protected override void ClickedOnMaterial(Node camera, InputEvent @event, 
@@ -48,13 +50,28 @@ public partial class TreeMaterial : BaseMaterial
 
     private void ChopTree()
     {
-        Inventory.AddItem(DroppableMaterials[1], GD.RandRange(3, 5));
-
         // All the visuals starts here
         GatherSound.Play();
+
+
         var tween = GetTree().CreateTween();
-        tween.TweenProperty(AxeMesh, "rotation_degrees", new Vector3(0, -180f, -90), 0.1);
+        tween.TweenProperty(AxeMesh, "rotation_degrees", new Vector3(0, -180f, -90), 0.08);
         tween.TweenProperty(AxeMesh, "rotation_degrees", new Vector3(0, -90f, -90), Tool.GatheringTime);
-        HealthComponent.TakeDamage(Tool.Damage);
+
+        WobbleTree();
+        
+        HealthComponent.TakeDamage(GD.RandRange(Tool.MinDamage, Tool.MaxDamage));
+    }
+
+    private void WobbleTree()
+    {
+        var tween = GetTree().CreateTween();
+        tween.SetTrans(Tween.TransitionType.Spring);
+
+        tween.TweenProperty(TreeMesh, "rotation_degrees:z", 6f, 0.08);
+        tween.TweenProperty(TreeMesh, "rotation_degrees:z", -6f, 0.08);
+        tween.TweenProperty(TreeMesh, "rotation_degrees:z", 4f, 0.08);
+        tween.TweenProperty(TreeMesh, "rotation_degrees:z", -4f, 0.08);
+        tween.TweenProperty(TreeMesh, "rotation_degrees:z", 0f, 0.1);
     }
 }

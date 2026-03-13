@@ -25,7 +25,8 @@ public partial class HealthComponent : Node3D
     public async void TakeDamage(float amount)
     {
         Health -= amount;
-
+        GD.Print(Health);
+        
         if (Health <= 0)
         {
             Inventory.Instance.AddTool(ParentNode.Tool);

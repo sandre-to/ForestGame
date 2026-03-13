@@ -10,18 +10,18 @@ public partial class Upgrade : Node
     [Export]
     public Array<Requirement> Requirements = [];
 
-    private Inventory inventory;
+    private Inventory Inventory;
 
     public override void _Ready()
     {
         Instance = this;
-        inventory = Inventory.Instance;
+        Inventory = Inventory.Instance;
     }
 
     public void UpgradeStats(string reqId, string toolId, float percentage)
     {
         // Get the tool that will be upgraded
-        var tool = inventory.GetTool(toolId);
+        var tool = Inventory.GetTool(toolId);
         var requirement = FindRequirement(reqId);
         
         if (tool == null)
@@ -30,16 +30,12 @@ public partial class Upgrade : Node
             return;
         }
 
-        tool.Damage *= 1 + percentage;
+        tool.MinDamage *= (int)(1 + percentage);
+        tool.MaxDamage *= (int)(1 + percentage);
         tool.GatheringTime /= 1 + percentage;
         
         // Remove items from the inventory
-        foreach (var req in requirement.Materials)
-        {
-            inventory.RemoveItem(req.Id, req.Amount);
-        }
-        
-        GD.Print($"New stats: Damage: {tool.Damage}, Gathering time: {tool.GatheringTime}");
+        Inventory.RemoveItems(requirement.Id);
     }
 
     public bool CanUpgrade(string reqId)
@@ -53,7 +49,7 @@ public partial class Upgrade : Node
         } 
 
         // Find all the items in the inventory
-        Array<ItemData> currentInventory = inventory.GetInventory();
+        Array<ItemData> currentInventory = Inventory.GetInventory();
         if (currentInventory == null) return false;
 
         // Compare requirements with the current items

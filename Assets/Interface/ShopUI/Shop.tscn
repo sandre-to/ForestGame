@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://h3ok1druj10s" path="res://Assets/Tools/Axe/Resources/AxeLevel1.tres" id="8_4dxsl"]
 [ext_resource type="Resource" uid="uid://b4my16euwob5v" path="res://Assets/Tools/Axe/Resources/AxeLevel2.tres" id="9_7pxgw"]
 [ext_resource type="Resource" uid="uid://gas6f7davcip" path="res://Assets/Tools/Axe/Resources/AxeLevel3.tres" id="10_0plbk"]
+[ext_resource type="Texture2D" uid="uid://bl24w1kn2fhuu" path="res://Assets/NatureMaterials/Tree/Resources/Sticks.png" id="11_4dxsl"]
+[ext_resource type="Script" uid="uid://dvf03djbjwfk" path="res://Assets/Interface/ShopUI/SellPanel.cs" id="11_7pxgw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6tys"]
 bg_color = Color(0.68055713, 0.66210645, 0.61230224, 1)
@@ -34,6 +36,9 @@ corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dxsl"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_w6tys"]
 resource_name = "FadeIn"
@@ -133,15 +138,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0gnx")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/InnerPanel" unique_id=1518983921]
+[node name="TabContainer" type="TabContainer" parent="Panel/InnerPanel" unique_id=630037750]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 17.70227
+offset_right = -17.70227
+offset_bottom = -24.53656
 grow_horizontal = 2
 grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
 
-[node name="ToolButtons" type="MarginContainer" parent="Panel/InnerPanel/HBoxContainer" unique_id=1555551285]
+[node name="Buy And Upgrade" type="HBoxContainer" parent="Panel/InnerPanel/TabContainer" unique_id=1518983921]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ToolButtons" type="MarginContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade" unique_id=1555551285]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/margin_left = 42
@@ -149,7 +163,7 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="GridContainer" type="GridContainer" parent="Panel/InnerPanel/HBoxContainer/ToolButtons" unique_id=1698527684]
+[node name="GridContainer" type="GridContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolButtons" unique_id=1698527684]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -157,7 +171,7 @@ theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="AxeButton" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolButtons/GridContainer" unique_id=484676740]
+[node name="AxeButton" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolButtons/GridContainer" unique_id=484676740]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
@@ -166,7 +180,7 @@ icon = SubResource("CompressedTexture2D_s0gnx")
 icon_alignment = 1
 expand_icon = true
 
-[node name="PickaxeButton" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolButtons/GridContainer" unique_id=661209712]
+[node name="PickaxeButton" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolButtons/GridContainer" unique_id=661209712]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
@@ -174,7 +188,7 @@ icon = ExtResource("3_6v0lp")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ToolInfoDisplay" type="MarginContainer" parent="Panel/InnerPanel/HBoxContainer" unique_id=1278547638]
+[node name="ToolInfoDisplay" type="MarginContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade" unique_id=1278547638]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -183,13 +197,13 @@ theme_override_constants/margin_top = 26
 theme_override_constants/margin_right = 26
 theme_override_constants/margin_bottom = 26
 
-[node name="Panel" type="Panel" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay" unique_id=510960096]
+[node name="Panel" type="Panel" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay" unique_id=510960096]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_tktbd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel" unique_id=2141243271]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel" unique_id=2141243271]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,11 +211,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BuyPanel" type="Panel" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer" unique_id=906423640]
+[node name="BuyPanel" type="Panel" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer" unique_id=906423640]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="UnderTitle" type="Label" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=1308945041]
+[node name="UnderTitle" type="Label" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=1308945041]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -215,7 +229,7 @@ text = "INCREASE AMOUNT OF TOOLS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BuyButton" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=1482190080]
+[node name="BuyButton" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=1482190080]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
@@ -233,7 +247,7 @@ grow_vertical = 2
 size_flags_vertical = 4
 text = "BUY +1"
 
-[node name="RequirementsLabel" type="Label" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=342176549]
+[node name="RequirementsLabel" type="Label" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/BuyPanel" unique_id=342176549]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -250,11 +264,11 @@ grow_vertical = 2
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="UpgardePanel" type="Panel" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer" unique_id=1303186647]
+[node name="UpgardePanel" type="Panel" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer" unique_id=1303186647]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UnderTitle" type="Label" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel" unique_id=1887941342]
+[node name="UnderTitle" type="Label" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel" unique_id=1887941342]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -266,7 +280,7 @@ offset_bottom = 41.03601
 grow_horizontal = 2
 text = "UPGRADES"
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel" unique_id=2065223684]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel" unique_id=2065223684]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -278,7 +292,7 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="UpgradeButtons" type="HBoxContainer" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer" unique_id=664301670]
+[node name="UpgradeButtons" type="HBoxContainer" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer" unique_id=664301670]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -288,21 +302,93 @@ alignment = 1
 script = ExtResource("6_jrh7m")
 AxeUpgrades = Array[ExtResource("7_fm4ye")]([ExtResource("8_4dxsl"), ExtResource("9_7pxgw"), ExtResource("10_0plbk")])
 
-[node name="Level1" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=392352918]
+[node name="Level1" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=392352918]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
 tooltip_text = "Requirements:
 "
 
-[node name="Level2" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1540436460]
+[node name="Level2" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1540436460]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
 disabled = true
 
-[node name="Level3" type="Button" parent="Panel/InnerPanel/HBoxContainer/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1730442402]
+[node name="Level3" type="Button" parent="Panel/InnerPanel/TabContainer/Buy And Upgrade/ToolInfoDisplay/Panel/VBoxContainer/UpgardePanel/MarginContainer/UpgradeButtons" unique_id=1730442402]
 custom_minimum_size = Vector2(128, 150)
 layout_mode = 2
 disabled = true
+
+[node name="Sell" type="Panel" parent="Panel/InnerPanel/TabContainer" unique_id=1041898976]
+visible = false
+layout_mode = 2
+script = ExtResource("11_7pxgw")
+metadata/_tab_index = 1
+
+[node name="Button" type="Button" parent="Panel/InnerPanel/TabContainer/Sell" unique_id=2001908486]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.00003
+offset_top = -64.0
+offset_right = -25.99997
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("11_4dxsl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AmountEntered" type="LineEdit" parent="Panel/InnerPanel/TabContainer/Sell/Button" unique_id=1048812678]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 138.50745
+offset_right = 112.5
+offset_bottom = 169.50745
+placeholder_text = "Amount"
+alignment = 1
+max_length = 4
+
+[node name="-----" type="Panel" parent="Panel/InnerPanel/TabContainer/Sell" unique_id=145074714]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -2.5074463
+offset_right = 20.0
+offset_bottom = 2.5074463
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dxsl")
+
+[node name="SellButton" type="Button" parent="Panel/InnerPanel/TabContainer/Sell" unique_id=1318571493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.99997
+offset_top = -34.507446
+offset_right = 205.99997
+offset_bottom = 34.507446
+grow_horizontal = 2
+grow_vertical = 2
+text = "SELL"
+
+[node name="ValueLabel" type="Label" parent="Panel/InnerPanel/TabContainer/Sell/SellButton" unique_id=926785145]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 80.01489
+offset_right = 183.0
+offset_bottom = 103.01489
+text = "TOTAL VALUE: "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218091198]
 libraries/ = SubResource("AnimationLibrary_s0gnx")
