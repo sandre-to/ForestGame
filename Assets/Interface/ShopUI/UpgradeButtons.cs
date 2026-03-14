@@ -40,7 +40,7 @@ public partial class UpgradeButtons : HBoxContainer
         {
             _level1.Disabled = true;
             _level2.Disabled = false;
-            Upgrade.Instance.UpgradeStats(AxeUpgrades[0].Id, Tool.Id, 0.25f);
+            Upgrade.Instance.UpgradeStats(AxeUpgrades[0].Id, Tool.Id, 0.5f);
         }
     }
 

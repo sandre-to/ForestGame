@@ -6,8 +6,6 @@
 [resource]
 script = ExtResource("2_tehft")
 ShopId = "buy_axe"
-Damage = 1.0
-GatheringTime = 2.0
 Id = "axe_tool"
 Name = "Axe"
 Image = ExtResource("1_q0gtx")

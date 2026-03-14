@@ -7,6 +7,7 @@ public partial class Main : Node3D
 {
     private PackedScene _tree = GD.Load<PackedScene>("res://Assets/NatureMaterials/Tree/TreeMaterial.tscn");
     private GridMap _gridMap;
+    private AudioStreamPlayer3D _introMusic;
 
     private int _totalTrees = 0;
 
@@ -14,6 +15,8 @@ public partial class Main : Node3D
     {
         _gridMap = GetNode<GridMap>("GridMap");
         SignalBus.Instance.GatheredMaterial += UpdateCurrentTrees;
+        _introMusic = GetNode<AudioStreamPlayer3D>("IntroMusic");
+        _introMusic.Play();
         SpawnTrees();
     }
 

@@ -30,8 +30,8 @@ public partial class Upgrade : Node
             return;
         }
 
-        tool.MinDamage *= (int)(1 + percentage);
-        tool.MaxDamage *= (int)(1 + percentage);
+        tool.MinDamage *= 1 + percentage;
+        tool.MaxDamage *= 1 + percentage;
         tool.GatheringTime /= 1 + percentage;
         
         // Remove items from the inventory

@@ -8,6 +8,8 @@ namespace Assets.ShopUI;
 [GlobalClass]
 public partial class Shop : Control
 {
+    private const int AxePrice = 200;
+
     // What is the current tool that is selected in the left side panel? 
     [Export]
     private ToolData CurrentTool { get; set; } = null;
@@ -59,7 +61,7 @@ public partial class Shop : Control
     {
         CurrentTool = Inventory.Instance.GetTool("axe_tool");
         var requirement = Upgrade.Instance.FindRequirement("buy_axe");
-        RequirementsLabel.Text = $"Sticks: {requirement.Materials[0].Amount} \nWood: {requirement.Materials[1].Amount}";
+        RequirementsLabel.Text = "Cost: " + AxePrice.ToString();
         SetButtonIcons(AxeImages);
         UpgradeButtons.Tool = CurrentTool;
         UpgradeButtons.SetTooltip(UpgradeButtons.AxeUpgrades);
@@ -76,11 +78,9 @@ public partial class Shop : Control
     private void OnBuyButtonPressed()
     {
         if (CurrentTool == null) return;
-        if (Upgrade.Instance.CanUpgrade(CurrentTool.ShopId))
+        if (Inventory.Instance.CanBuy(AxePrice))
         {
             Inventory.Instance.AddTool(CurrentTool);
-            Inventory.Instance.RemoveItems(CurrentTool.ShopId);
-            GD.Print("Added item!");
         }
     }
 
@@ -93,10 +93,5 @@ public partial class Shop : Control
             button.ExpandIcon = true;
             button.Alignment = HorizontalAlignment.Center;
         }
-    }
-
-    private void SetRequirements()
-    {
-        
     }
 }

@@ -60,7 +60,7 @@ public partial class TreeMaterial : BaseMaterial
 
         WobbleTree();
         
-        HealthComponent.TakeDamage(GD.RandRange(Tool.MinDamage, Tool.MaxDamage));
+        HealthComponent.TakeDamage((float)GD.RandRange(Tool.MinDamage, Tool.MaxDamage));
     }
 
     private void WobbleTree()

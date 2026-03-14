@@ -1,4 +1,3 @@
-using System.Runtime.Intrinsics.X86;
 using Godot;
 using Godot.Collections;
 using Scripts.UpgradeSystem;
@@ -190,5 +189,22 @@ public partial class Inventory : Node
         var selectedItem = GetItem(itemId);
         if (selectedItem == null) return false;
         return selectedItem.Amount >= input;
+    }
+
+    public bool CanBuy(int amount)
+    {
+        if (amount <= Currency)
+        {
+            UpdateCurrency(amount);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void UpdateCurrency(int amount)
+    {
+        Currency -= amount;
+        EmitSignal(SignalName.CurrencyUpdated, Currency);
     }
 }

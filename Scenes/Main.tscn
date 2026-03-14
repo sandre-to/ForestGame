@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpyojtt6tp703" path="res://Assets/Interface/HUD/Slot.tscn" id="4_v1gob"]
 [ext_resource type="PackedScene" uid="uid://nixbr6haup0t" path="res://Assets/Interface/ShopUI/Shop.tscn" id="6_bmxlf"]
 [ext_resource type="Script" uid="uid://chme6hylqq1xr" path="res://Assets/Interface/ShopUI/CurrencyLabel.cs" id="6_v1gob"]
+[ext_resource type="AudioStream" uid="uid://b1g3du0ybwnsu" path="res://Assets/Music/Intro.wav" id="7_jw32o"]
 
 [sub_resource type="Environment" id="Environment_50glp"]
 background_mode = 3
@@ -97,3 +98,7 @@ grow_horizontal = 0
 text = "Currency: 0"
 vertical_alignment = 1
 script = ExtResource("6_v1gob")
+
+[node name="IntroMusic" type="AudioStreamPlayer3D" parent="." unique_id=698609137]
+stream = ExtResource("7_jw32o")
+volume_db = 5.0
